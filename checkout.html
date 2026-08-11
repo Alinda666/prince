@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,36 +11,58 @@
 
 <body>
 
-    <header class="checkout-header">
+    <header>
         <h1>PRINCE ONLINE SHOP</h1>
         <a href="index.html">← Continue Shopping</a>
     </header>
 
-    <main class="checkout-container">
+    <main>
 
         <h2>Checkout</h2>
 
-        <form>
+        <form id="checkout-form">
 
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name" required>
+            <label for="name">Full Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
 
-            <label>Phone Number</label>
-            <input type="tel" placeholder="Enter your phone number" required>
+            <label for="phone">Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+            >
 
-            <label>Email</label>
-            <input type="email" placeholder="Enter your email">
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+            >
 
-            <label>Delivery Address</label>
-            <textarea placeholder="Enter your delivery address" required></textarea>
+            <label for="address">Delivery Address</label>
+            <textarea
+                id="address"
+                name="address"
+                placeholder="Enter your delivery address"
+                required
+            ></textarea>
 
             <h3>Payment Method</h3>
 
-            <select required>
+            <select id="payment" name="payment" required>
                 <option value="">Select payment method</option>
-                <option>Mobile Money</option>
-                <option>Cash on Delivery</option>
-                <option>Bank Transfer</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+                <option value="Mobile Money">Mobile Money</option>
+                <option value="Bank Transfer">Bank Transfer</option>
             </select>
 
             <button type="submit">
@@ -52,6 +73,7 @@
 
     </main>
 
+    <!-- JavaScript -->
     <script src="checkout.js"></script>
 
 </body>
