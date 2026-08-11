@@ -47,7 +47,7 @@ if (form) {
         // YOUR SHOP WHATSAPP NUMBER
         const whatsappNumber = "256776704328";
 
-        const whatsappURL =
+        const whatsappURL = https://api.whatsapp.com/send/?phone=256776704328&text=Hello+PRINCE+ONLINE+SHOP%2C+I+need+help+with+my+order.&type=phone_number&app_absent=0
             "https://wa.me/" +
             whatsappNumber +
             "?text=" +
