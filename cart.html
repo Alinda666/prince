@@ -1,1 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - PRINCE ONLINE SHOP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==============================
+           CART PAGE
+        ============================== */
+
+        .cart-page {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .cart-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cart-title h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .cart-title p {
+            color: #777;
+        }
+
+        #cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .cart-product h3 {
+            margin: 0 0 8px;
+        }
+
+        .cart-product p {
+            margin: 0;
+            color: #777;
+        }
+
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 5px;
+            background: #ff6600;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .quantity-btn:hover {
+            opacity: 0.8;
+        }
+
+        .quantity {
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .cart-price {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .remove-btn {
+            border: none;
+            background: #e53935;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background: #c62828;
+        }
+
+        /* ==============================
+           CART SUMMARY
+        ============================== */
+
+        .cart-summary {
+            max-width: 450px;
+            margin: 40px 0 40px auto;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .summary-total {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .cart-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .continue-shopping,
+        .checkout-button {
+            flex: 1;
+            text-align: center;
+            padding: 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .continue-shopping {
+            background: #222;
+            color: white;
+        }
+
+        .checkout-button {
+            background: #ff6600;
+            color: white;
+        }
+
+        .continue-shopping:hover,
+        .checkout-button:hover {
+            opacity: 0.85;
+        }
+
+        /* ==============================
+           EMPTY CART
+        ============================== */
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            border: 1px dashed #ccc;
+            border-radius: 10px;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty-cart p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 768px) {
+
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cart-quantity {
+                justify-content: flex-start;
+            }
+
+            .cart-buttons {
+                flex-direction: column;
+            }
+
+            .cart-title h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                PRINCE ONLINE SHOP
+            </a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">🛒 Cart</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ==============================
+         CART
+    ============================== -->
+
+    <main class="cart-page">
+
+        <div class="cart-title">
+
+            <h1>Your Shopping Cart</h1>
+
+            <p>
+                Review your products before checkout.
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCTS WILL APPEAR HERE -->
+
+        <div id="cart-items"></div>
+
+
+        <!-- ==============================
+             SUMMARY
+        ============================== -->
+
+        <div class="cart-summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+
+                <span>Subtotal</span>
+
+                <strong id="cart-subtotal">
+                    UGX 0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row summary-total">
+
+                <span>Total</span>
+
+                <strong id="cart-total">
+                    UGX 0
+                </strong>
+
+            </div>
+
+
+            <div class="cart-buttons">
+
+                <a href="index.html"
+                   class="continue-shopping">
+                    Continue Shopping
+                </a>
+
+                <a href="checkout.html"
+                   class="checkout-button">
+                    Checkout
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==============================
+         WHATSAPP
+    ============================== -->
+
+    <a href="https://wa.me/256776704328?text=Hello%20PRINCE%20ONLINE%20SHOP,%20I%20need%20help%20with%20my%20order."
+       target="_blank"
+       style="
+           position: fixed;
+           right: 25px;
+           bottom: 25px;
+           width: 60px;
+           height: 60px;
+           background: #25D366;
+           color: white;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-size: 28px;
+           text-decoration: none;
+           z-index: 9999;
+           box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+       ">
+    💬
+</a>
+
+
+    <!-- CART JAVASCRIPT -->
+
+    <script src="cart.js"></script>
+
+</body>
+</html>
