@@ -1,195 +1,227 @@
 // ==========================================
-// PRINCE ONLINE SHOP - CART.JS
+// PRINCE ONLINE SHOP - CART SYSTEM
 // ==========================================
 
-document.addEventListener("DOMContentLoaded", function () {
+const CART_KEY = "princeCart";
 
-    // Get cart from browser storage
-    let cart = JSON.parse(localStorage.getItem("princeCart")) || [];
+// Get cart
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
+}
 
-    // Find the cart container
-    const cartContainer = document.querySelector("#cart-items");
+// Save cart
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
 
-    // Find subtotal and total elements
-    const subtotalElement = document.querySelector("#cart-subtotal");
-    const totalElement = document.querySelector("#cart-total");
+// Add product to cart
+function addToCart(name, price, image = "") {
 
-    // Display cart
-    function displayCart() {
+    price = Number(price);
 
-        if (!cartContainer) {
-            console.error("Cart container #cart-items was not found.");
-            return;
-        }
-
-        // Empty cart
-        if (cart.length === 0) {
-
-            cartContainer.innerHTML = `
-                <div class="empty-cart">
-                    <h2>Your cart is empty</h2>
-                    <p>Add some products to your cart.</p>
-
-                    <a href="index.html" class="continue-shopping">
-                        Continue Shopping
-                    </a>
-                </div>
-            `;
-
-            updateTotals();
-            return;
-        }
-
-        // Clear previous cart
-        cartContainer.innerHTML = "";
-
-        // Display every product
-        cart.forEach(function (product, index) {
-
-            const item = document.createElement("div");
-
-            item.className = "cart-item";
-
-            item.innerHTML = `
-                <div class="cart-product">
-                    <h3>${product.name}</h3>
-                    <p>Price: UGX ${Number(product.price).toLocaleString()}</p>
-                </div>
-
-                <div class="cart-quantity">
-
-                    <button 
-                        class="quantity-btn decrease"
-                        data-index="${index}">
-                        −
-                    </button>
-
-                    <span class="quantity">
-                        ${product.quantity}
-                    </span>
-
-                    <button 
-                        class="quantity-btn increase"
-                        data-index="${index}">
-                        +
-                    </button>
-
-                </div>
-
-                <div class="cart-price">
-                    UGX ${(Number(product.price) * product.quantity).toLocaleString()}
-                </div>
-
-                <button 
-                    class="remove-btn"
-                    data-index="${index}">
-                    Remove
-                </button>
-            `;
-
-            cartContainer.appendChild(item);
-        });
-
-        updateTotals();
+    if (!name || isNaN(price)) {
+        alert("Product information is missing.");
+        return;
     }
 
+    let cart = getCart();
 
-    // ==========================================
-    // UPDATE TOTALS
-    // ==========================================
+    const existingProduct = cart.find(product => product.name === name);
 
-    function updateTotals() {
-
-        let subtotal = 0;
-
-        cart.forEach(function (product) {
-
-            subtotal += Number(product.price) * product.quantity;
-
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
         });
+    }
 
-        if (subtotalElement) {
-            subtotalElement.textContent =
-                "UGX " + subtotal.toLocaleString();
-        }
+    saveCart(cart);
+
+    alert(name + " has been added to your cart!");
+
+    updateCartCount();
+}
+
+// Update cart count
+function updateCartCount() {
+
+    const cart = getCart();
+
+    const count = cart.reduce(
+        (total, product) => total + product.quantity,
+        0
+    );
+
+    const cartCount = document.getElementById("cart-count");
+
+    if (cartCount) {
+        cartCount.textContent = count;
+    }
+}
+
+// Display cart
+function displayCart() {
+
+    const cartContainer = document.getElementById("cart-items");
+    const totalElement = document.getElementById("cart-total");
+
+    if (!cartContainer) {
+        return;
+    }
+
+    const cart = getCart();
+
+    cartContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        cartContainer.innerHTML = `
+            <div class="empty-cart">
+                <h2>Your cart is empty</h2>
+                <p>Please add a product first.</p>
+                <a href="index.html">Continue Shopping</a>
+            </div>
+        `;
 
         if (totalElement) {
-            totalElement.textContent =
-                "UGX " + subtotal.toLocaleString();
+            totalElement.textContent = "UGX 0";
         }
+
+        return;
     }
 
+    let total = 0;
 
-    // ==========================================
-    // CART BUTTONS
-    // ==========================================
+    cart.forEach((product, index) => {
 
-    if (cartContainer) {
+        const subtotal = product.price * product.quantity;
 
-        cartContainer.addEventListener("click", function (event) {
+        total += subtotal;
 
-            const index = event.target.dataset.index;
+        cartContainer.innerHTML += `
 
-            // Increase quantity
-            if (event.target.classList.contains("increase")) {
+            <div class="cart-item">
 
-                cart[index].quantity += 1;
-
-                saveCart();
-
-                displayCart();
-            }
-
-
-            // Decrease quantity
-            if (event.target.classList.contains("decrease")) {
-
-                cart[index].quantity -= 1;
-
-                // Remove product if quantity becomes zero
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
+                ${
+                    product.image
+                    ? `<img src="${product.image}" alt="${product.name}">`
+                    : ""
                 }
 
-                saveCart();
+                <div class="cart-product-info">
 
-                displayCart();
-            }
+                    <h3>${product.name}</h3>
 
+                    <p>
+                        Price:
+                        UGX ${product.price.toLocaleString()}
+                    </p>
 
-            // Remove product
-            if (event.target.classList.contains("remove-btn")) {
+                    <div class="quantity-controls">
 
-                cart.splice(index, 1);
+                        <button onclick="decreaseQuantity(${index})">
+                            −
+                        </button>
 
-                saveCart();
+                        <span>${product.quantity}</span>
 
-                displayCart();
-            }
+                        <button onclick="increaseQuantity(${index})">
+                            +
+                        </button>
 
-        });
+                    </div>
 
+                    <h3>
+                        UGX ${subtotal.toLocaleString()}
+                    </h3>
+
+                    <button
+                        class="remove-button"
+                        onclick="removeFromCart(${index})">
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    });
+
+    if (totalElement) {
+        totalElement.textContent =
+            "UGX " + total.toLocaleString();
     }
+}
 
+// Increase quantity
+function increaseQuantity(index) {
 
-    // ==========================================
-    // SAVE CART
-    // ==========================================
+    let cart = getCart();
 
-    function saveCart() {
+    cart[index].quantity += 1;
 
-        localStorage.setItem(
-            "princeCart",
-            JSON.stringify(cart)
-        );
-
-    }
-
-
-    // ==========================================
-    // INITIAL DISPLAY
-    // ==========================================
+    saveCart(cart);
 
     displayCart();
+    updateCartCount();
+}
+
+// Decrease quantity
+function decreaseQuantity(index) {
+
+    let cart = getCart();
+
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity -= 1;
+
+    } else {
+
+        cart.splice(index, 1);
+
+    }
+
+    saveCart(cart);
+
+    displayCart();
+    updateCartCount();
+}
+
+// Remove product
+function removeFromCart(index) {
+
+    let cart = getCart();
+
+    cart.splice(index, 1);
+
+    saveCart(cart);
+
+    displayCart();
+    updateCartCount();
+}
+
+// Clear cart
+function clearCart() {
+
+    localStorage.removeItem(CART_KEY);
+
+    displayCart();
+    updateCartCount();
+}
+
+// Run when page loads
+document.addEventListener("DOMContentLoaded", function () {
+
+    displayCart();
+
+    updateCartCount();
 
 });
