@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            orderTotal.textContent = "UGX 0";
+            orderTotal.textContent = "UGX 60000";
 
             return;
         }
 
 
-        let total = 0;
+        let total = 60000;
 
 
         cart.forEach(function (item) {
