@@ -6,19 +6,169 @@
 
     <title>Checkout - PRINCE ONLINE SHOP</title>
 
-    <link rel="stylesheet" href="checkout.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #ff6600;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item strong {
+            font-size: 18px;
+        }
+
+        .cart-total {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6600;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .place-order {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            background: #ff6600;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .place-order:hover {
+            background: #e65c00;
+        }
+
+        .whatsapp-note {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e9fff0;
+            border-radius: 8px;
+            color: #16753a;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .shop-button {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>PRINCE ONLINE SHOP</h1>
-        <a href="index.html">← Continue Shopping</a>
-    </header>
+<header>
+    <h1>PRINCE ONLINE SHOP</h1>
+</header>
 
-    <main>
+<div class="container">
 
-        <h2>Checkout</h2>
+    <a href="cart.html" class="back">← Back to Cart</a>
+
+    <!-- ORDER SUMMARY -->
+    <div class="box">
+        <h2>Your Order</h2>
+
+        <div id="order-items">
+            <!-- Cart products will appear here -->
+        </div>
+
+        <div class="cart-total">
+            Total: <span id="order-total">UGX 0</span>
+        </div>
+    </div>
+
+
+    <!-- CUSTOMER INFORMATION -->
+    <div class="box">
+
+        <h2>Customer Information</h2>
 
         <form id="checkout-form">
 
@@ -56,25 +206,47 @@
                 required
             ></textarea>
 
-            <h3>Payment Method</h3>
+            <label for="payment">Payment Method</label>
 
             <select id="payment" name="payment" required>
-                <option value="">Select payment method</option>
-                <option value="Cash on Delivery">Cash on Delivery</option>
-                <option value="Mobile Money">Mobile Money</option>
-                <option value="Bank Transfer">Bank Transfer</option>
+
+                <option value="">
+                    Select payment method
+                </option>
+
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
+
+                <option value="Mobile Money">
+                    Mobile Money
+                </option>
+
+                <option value="Bank Transfer">
+                    Bank Transfer
+                </option>
+
             </select>
 
-            <button type="submit">
-                Place Order
+
+            <button type="submit" class="place-order">
+                Place Order on WhatsApp
             </button>
 
         </form>
 
-    </main>
+        <div class="whatsapp-note">
+            📱 After clicking "Place Order", WhatsApp will open with your
+            order details. Please press <strong>Send</strong> to send the order.
+        </div>
 
-    <!-- JavaScript -->
-    <script src="checkout.js"></script>
+    </div>
+
+</div>
+
+
+<!-- IMPORTANT: checkout.js must be loaded -->
+<script src="checkout.js"></script>
 
 </body>
 </html>
