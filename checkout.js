@@ -1,431 +1,130 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /*
-    ==========================================
-    PRINCE ONLINE SHOP
-    CHECKOUT SYSTEM
-    ==========================================
-    */
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // YOUR PRINCE SHOP WHATSAPP NUMBER
-    const whatsappNumber = "256776704328";
+    const orderContainer = document.getElementById("checkout-items");
+    const totalElement = document.getElementById("checkout-total");
+    const form = document.getElementById("checkout-form");
 
+    // Stop if cart is empty
+    if (cart.length === 0) {
 
-    // ==========================================
-    // GET CART FROM LOCAL STORAGE
-    // ==========================================
-
-    let cart = [];
-
-    try {
-        cart = JSON.parse(localStorage.getItem("cart")) || [];
-    } catch (error) {
-        cart = [];
-    }
-
-
-    // ==========================================
-    // HTML ELEMENTS
-    // ==========================================
-
-    const orderItems = document.getElementById("order-items");
-    const orderTotal = document.getElementById("order-total");
-    const checkoutForm = document.getElementById("checkout-form");
-
-
-    // ==========================================
-    // SHOW CART
-    // ==========================================
-
-    function displayCart() {
-
-        orderItems.innerHTML = "";
-
-        if (!Array.isArray(cart) || cart.length === 0) {
-
-            orderItems.innerHTML = `
-                <div class="empty">
-
-                    <h3>Your cart is empty</h3>
-
-                    <p>
-                        Please add a product before checking out.
-                    </p>
-
-                    <a href="index.html" class="shop-button">
-                        Continue Shopping
-                    </a>
-
+        if (orderContainer) {
+            orderContainer.innerHTML = `
+                <div class="empty-cart">
+                    <h2>Your cart is empty</h2>
+                    <p>Please add a product before checking out.</p>
+                    <a href="index.html">Continue Shopping</a>
                 </div>
             `;
-
-            orderTotal.textContent = "UGX 60000";
-
-            return;
         }
 
+        if (totalElement) {
+            totalElement.textContent = "UGX 0";
+        }
 
-        let total = 60000;
+        return;
+    }
 
+    // Calculate total
+    let total = 0;
 
-        cart.forEach(function (item) {
+    let html = "";
 
-            // Accept different possible property names
-            const name =
-                item.name ||
-                item.productName ||
-                item.title ||
-                "Product";
+    cart.forEach(function (item) {
 
+        const itemTotal = Number(item.price) * Number(item.quantity);
 
-            const price = Number(
-                item.price ||
-                item.newPrice ||
-                item.amount ||
-                0
-            );
+        total += itemTotal;
 
-
-            const quantity = Number(
-                item.quantity ||
-                item.qty ||
-                1
-            );
-
-
-            const itemTotal = price * quantity;
-
-            total += itemTotal;
-
-
-            const productDiv = document.createElement("div");
-
-            productDiv.className = "cart-item";
-
-            productDiv.innerHTML = `
-                <strong>${escapeHTML(name)}</strong>
-
-                <br>
-
-                Price:
-                UGX ${price.toLocaleString()}
-
-                <br>
-
-                Quantity:
-                ${quantity}
-
-                <br>
-
-                Subtotal:
+        html += `
+            <div class="checkout-product">
+                <strong>${item.name}</strong>
+                <span>
+                    ${item.quantity} × UGX ${Number(item.price).toLocaleString()}
+                </span>
                 <strong>
                     UGX ${itemTotal.toLocaleString()}
                 </strong>
-            `;
-
-
-            orderItems.appendChild(productDiv);
-
-        });
-
-
-        orderTotal.textContent =
-            "UGX " + total.toLocaleString();
-
-    }
-
-
-    // ==========================================
-    // SECURITY FUNCTION
-    // ==========================================
-
-    function escapeHTML(text) {
-
-        const div = document.createElement("div");
-
-        div.textContent = text;
-
-        return div.innerHTML;
-
-    }
-
-
-    // ==========================================
-    // DISPLAY CART WHEN PAGE LOADS
-    // ==========================================
-
-    displayCart();
-
-
-    // ==========================================
-    // PLACE ORDER
-    // ==========================================
-
-    checkoutForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-
-        // Make sure cart is not empty
-
-        if (!cart || cart.length === 0) {
-
-            alert(
-                "Your cart is empty. Please add a product first."
-            );
-
-            return;
-        }
-
-
-        // ==========================================
-        // CUSTOMER INFORMATION
-        // ==========================================
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const phone =
-            document.getElementById("phone").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const address =
-            document.getElementById("address").value.trim();
-
-        const payment =
-            document.getElementById("payment").value;
-
-
-        // ==========================================
-        // VALIDATE CUSTOMER INFORMATION
-        // ==========================================
-
-        if (!name) {
-
-            alert("Please enter your full name.");
-
-            return;
-        }
-
-
-        if (!phone) {
-
-            alert("Please enter your phone number.");
-
-            return;
-        }
-
-
-        if (!address) {
-
-            alert("Please enter your delivery address.");
-
-            return;
-        }
-
-
-        if (!payment) {
-
-            alert("Please select a payment method.");
-
-            return;
-        }
-
-
-        // ==========================================
-        // CREATE ORDER NUMBER
-        // ==========================================
-
-        const orderNumber =
-            "PR-" +
-            Date.now().toString().slice(-8);
-
-
-        // ==========================================
-        // CALCULATE TOTAL
-        // ==========================================
-
-        let total = 0;
-
-
-        // ==========================================
-        // CREATE WHATSAPP MESSAGE
-        // ==========================================
-
-        let message = "";
-
-        message += "🛒 *NEW ORDER - PRINCE ONLINE SHOP*";
-        message += "\n";
-        message += "━━━━━━━━━━━━━━━━━━━━";
-        message += "\n\n";
-
-        message += "📋 *ORDER NUMBER:* ";
-        message += orderNumber;
-        message += "\n\n";
-
-
-        message += "👤 *CUSTOMER DETAILS*";
-        message += "\n";
-
-        message += "Name: ";
-        message += name;
-        message += "\n";
-
-        message += "Phone: ";
-        message += phone;
-        message += "\n";
-
-        if (email) {
-
-            message += "Email: ";
-            message += email;
-            message += "\n";
-
-        }
-
-        message += "Address: ";
-        message += address;
-        message += "\n";
-
-        message += "Payment: ";
-        message += payment;
-        message += "\n\n";
-
-
-        // ==========================================
-        // PRODUCTS
-        // ==========================================
-
-        message += "🛍️ *ORDER ITEMS*";
-        message += "\n";
-
-
-        cart.forEach(function (item, index) {
-
-            const name =
-                item.name ||
-                item.productName ||
-                item.title ||
-                "Product";
-
-
-            const price = Number(
-                item.price ||
-                item.newPrice ||
-                item.amount ||
-                0
-            );
-
-
-            const quantity = Number(
-                item.quantity ||
-                item.qty ||
-                1
-            );
-
-
-            const itemTotal =
-                price * quantity;
-
-
-            total += itemTotal;
-
-
-            message += "\n";
-
-            message += (index + 1) + ". ";
-
-            message += name;
-
-            message += "\n";
-
-            message += "   Price: UGX ";
-            message += price.toLocaleString();
-
-            message += "\n";
-
-            message += "   Quantity: ";
-            message += quantity;
-
-            message += "\n";
-
-            message += "   Subtotal: UGX ";
-            message += itemTotal.toLocaleString();
-
-            message += "\n";
-
-        });
-
-
-        // ==========================================
-        // TOTAL
-        // ==========================================
-
-        message += "\n";
-        message += "━━━━━━━━━━━━━━━━━━━━";
-        message += "\n";
-
-        message += "💰 *TOTAL: UGX ";
-        message += total.toLocaleString();
-        message += "*";
-
-        message += "\n\n";
-
-        message += "Thank you for shopping with PRINCE ONLINE SHOP!";
-
-
-        // ==========================================
-        // CREATE WHATSAPP LINK
-        // ==========================================
-
-        const whatsappURL =
-            "https://wa.me/" +
-            whatsappNumber +
-            "?text=" +
-            encodeURIComponent(message);
-
-
-        // ==========================================
-        // SAVE ORDER LOCALLY
-        // ==========================================
-
-        const order = {
-
-            orderNumber: orderNumber,
-
-            customer: {
-
-                name: name,
-                phone: phone,
-                email: email,
-                address: address,
-                payment: payment
-
-            },
-
-            products: cart,
-
-            total: total,
-
-            date: new Date().toISOString()
-
-        };
-
-
-        localStorage.setItem(
-            "lastOrder",
-            JSON.stringify(order)
-        );
-
-
-        // ==========================================
-        // OPEN WHATSAPP
-        // ==========================================
-
-        window.location.href = whatsappURL;
-
+            </div>
+        `;
     });
+
+    if (orderContainer) {
+        orderContainer.innerHTML = html;
+    }
+
+    if (totalElement) {
+        totalElement.textContent =
+            "UGX " + total.toLocaleString();
+    }
+
+
+    // PLACE ORDER
+    if (form) {
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const address = document.getElementById("address").value.trim();
+            const payment = document.getElementById("payment").value;
+
+            if (!name || !phone || !address || !payment) {
+                alert("Please fill in all required information.");
+                return;
+            }
+
+            // Create WhatsApp message
+            let message = "🛒 *NEW ORDER - PRINCE ONLINE SHOP*%0A%0A";
+
+            message += "👤 *Customer:* " + name + "%0A";
+            message += "📞 *Phone:* " + phone + "%0A";
+            message += "📧 *Email:* " + email + "%0A";
+            message += "📍 *Delivery:* " + address + "%0A";
+            message += "💳 *Payment:* " + payment + "%0A%0A";
+
+            message += "🛍️ *ORDER ITEMS*%0A";
+
+            cart.forEach(function (item) {
+
+                const itemTotal =
+                    Number(item.price) * Number(item.quantity);
+
+                message +=
+                    "• " +
+                    item.name +
+                    " × " +
+                    item.quantity +
+                    " = UGX " +
+                    itemTotal.toLocaleString() +
+                    "%0A";
+            });
+
+            message += "%0A💰 *TOTAL: UGX " +
+                total.toLocaleString() +
+                "*";
+
+            // Your WhatsApp number
+            const whatsappNumber = "256776704328";
+
+            const whatsappURL =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                message;
+
+            // Open WhatsApp
+            window.open(whatsappURL, "_blank");
+
+            // Clear cart AFTER opening WhatsApp
+            localStorage.removeItem("cart");
+
+        });
+
+    }
 
 });
