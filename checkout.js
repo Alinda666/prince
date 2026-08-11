@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // Get cart from localStorage
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const orderContainer = document.getElementById("checkout-items");
     const totalElement = document.getElementById("checkout-total");
     const form = document.getElementById("checkout-form");
 
-    // Stop if cart is empty
+    // Check if cart is empty
     if (cart.length === 0) {
 
         if (orderContainer) {
@@ -28,21 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Calculate total
     let total = 0;
-
     let html = "";
 
     cart.forEach(function (item) {
 
-        const itemTotal = Number(item.price) * Number(item.quantity);
+        const price = Number(item.price) || 0;
+        const quantity = Number(item.quantity) || 1;
+        const itemTotal = price * quantity;
 
         total += itemTotal;
 
         html += `
             <div class="checkout-product">
                 <strong>${item.name}</strong>
+
                 <span>
-                    ${item.quantity} × UGX ${Number(item.price).toLocaleString()}
+                    ${quantity} × UGX ${price.toLocaleString()}
                 </span>
+
                 <strong>
                     UGX ${itemTotal.toLocaleString()}
                 </strong>
@@ -50,10 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     });
 
+    // Display products
     if (orderContainer) {
         orderContainer.innerHTML = html;
     }
 
+    // Display total
     if (totalElement) {
         totalElement.textContent =
             "UGX " + total.toLocaleString();
@@ -67,61 +73,131 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const payment = document.getElementById("payment").value;
+            // Get customer information
+            const nameElement = document.getElementById("name");
+            const phoneElement = document.getElementById("phone");
+            const emailElement = document.getElementById("email");
+            const addressElement = document.getElementById("address");
+            const paymentElement = document.getElementById("payment");
 
+            if (
+                !nameElement ||
+                !phoneElement ||
+                !emailElement ||
+                !addressElement ||
+                !paymentElement
+            ) {
+                alert("Checkout form fields are missing.");
+                return;
+            }
+
+            const name = nameElement.value.trim();
+            const phone = phoneElement.value.trim();
+            const email = emailElement.value.trim();
+            const address = addressElement.value.trim();
+            const payment = paymentElement.value;
+
+            // Validate
             if (!name || !phone || !address || !payment) {
                 alert("Please fill in all required information.");
                 return;
             }
 
-            // Create WhatsApp message
-            let message = "🛒 *NEW ORDER - PRINCE ONLINE SHOP*%0A%0A";
 
-            message += "👤 *Customer:* " + name + "%0A";
-            message += "📞 *Phone:* " + phone + "%0A";
-            message += "📧 *Email:* " + email + "%0A";
-            message += "📍 *Delivery:* " + address + "%0A";
-            message += "💳 *Payment:* " + payment + "%0A%0A";
+            // =========================
+            // CREATE WHATSAPP MESSAGE
+            // =========================
 
-            message += "🛍️ *ORDER ITEMS*%0A";
+            let message =
+                "🛒 NEW ORDER - PRINCE ONLINE SHOP\n\n";
 
+            message +=
+                "👤 Customer: " + name + "\n";
+
+            message +=
+                "📞 Phone: " + phone + "\n";
+
+            message +=
+                "📧 Email: " + email + "\n";
+
+            message +=
+                "📍 Delivery Address: " + address + "\n";
+
+            message +=
+                "💳 Payment: " + payment + "\n\n";
+
+
+            message +=
+                "🛍️ ORDER ITEMS\n";
+
+            message +=
+                "------------------------\n";
+
+
+            // Add products
             cart.forEach(function (item) {
 
-                const itemTotal =
-                    Number(item.price) * Number(item.quantity);
+                const price = Number(item.price) || 0;
+                const quantity = Number(item.quantity) || 1;
+
+                const itemTotal = price * quantity;
 
                 message +=
                     "• " +
                     item.name +
                     " × " +
-                    item.quantity +
+                    quantity +
                     " = UGX " +
                     itemTotal.toLocaleString() +
-                    "%0A";
+                    "\n";
             });
 
-            message += "%0A💰 *TOTAL: UGX " +
-                total.toLocaleString() +
-                "*";
 
-            // Your WhatsApp number
+            message +=
+                "\n------------------------\n";
+
+            message +=
+                "💰 TOTAL: UGX " +
+                total.toLocaleString() +
+                "\n\n";
+
+            message +=
+                "Thank you for shopping with PRINCE ONLINE SHOP.";
+
+
+            // =========================
+            // YOUR WHATSAPP NUMBER
+            // =========================
+
             const whatsappNumber = "256776704328";
 
+
+            // Encode the complete message
+            const encodedMessage =
+                encodeURIComponent(message);
+
+
+            // WhatsApp URL
             const whatsappURL =
                 "https://wa.me/" +
                 whatsappNumber +
                 "?text=" +
-                message;
+                encodedMessage;
+
 
             // Open WhatsApp
             window.open(whatsappURL, "_blank");
 
-            // Clear cart AFTER opening WhatsApp
-            localStorage.removeItem("cart");
+
+            // IMPORTANT:
+            // Do not immediately delete the cart.
+            // Keep it until the customer has opened WhatsApp.
+
+            setTimeout(function () {
+
+                localStorage.removeItem("cart");
+
+            }, 3000);
 
         });
 
