@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>About Us - PRINCE ONLINE SHOP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .about-page {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 6%;
+        }
+
+        .about-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .about-hero h1 span {
+            color: #ff6600;
+        }
+
+        .about-hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #666;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: #ff6600;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .values {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .values h2 {
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .value-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-contact {
+            margin-top: 60px;
+            padding: 45px 25px;
+            background: #111;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .about-contact h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about-contact p {
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .about-contact a {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .about-contact a:hover {
+            background: #e65c00;
+        }
+
+        @media (max-width: 800px) {
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero h1 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html">
+                PRINCE ONLINE SHOP
+            </a>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="cart.html">
+                🛒 Cart
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ABOUT PAGE -->
+
+    <main class="about-page">
+
+
+        <!-- HERO -->
+
+        <section class="about-hero">
+
+            <h1>
+                About <span>PRINCE ONLINE SHOP</span>
+            </h1>
+
+            <p>
+                Welcome to PRINCE ONLINE SHOP, your trusted online
+                shopping destination. We are committed to providing
+                quality products at affordable prices with a simple,
+                convenient and reliable shopping experience.
+            </p>
+
+        </section>
+
+
+
+        <!-- WHO WE ARE -->
+
+        <section class="about-section">
+
+
+            <div class="about-text">
+
+                <h2>
+                    Who <span>We Are</span>
+                </h2>
+
+                <p>
+                    PRINCE ONLINE SHOP is an online marketplace created
+                    to make shopping easier and more convenient.
+                </p>
+
+                <p>
+                    Our goal is to bring a variety of useful products
+                    together in one place while giving our customers
+                    competitive prices and excellent service.
+                </p>
+
+                <p>
+                    Whether you are looking for electronics, phones,
+                    laptops, watches, home products or other items,
+                    PRINCE ONLINE SHOP is here to serve you.
+                </p>
+
+            </div>
+
+
+            <div class="about-image">
+
+                <img
+                    src="laptop.jpg"
+                    alt="PRINCE ONLINE SHOP"
+                >
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- OUR VALUES -->
+
+        <section class="values">
+
+            <h2>
+                Why Shop With Us?
+            </h2>
+
+
+            <div class="value-grid">
+
+
+                <div class="value-card">
+
+                    <div class="icon">
+                        🛍️
+                    </div>
+
+                    <h3>
+                        Quality Products
+                    </h3>
+
+                    <p>
+                        We aim to provide products that offer
+                        good value and quality.
+                    </p>
+
+                </div>
+
+
+
+                <div class="value-card">
+
+                    <div class="icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Great Prices
+                    </h3>
+
+                    <p>
+                        Enjoy competitive prices and special
+                        deals on selected products.
+                    </p>
+
+                </div>
+
+
+
+                <div class="value-card">
+
+                    <div class="icon">
+                        🚚
+                    </div>
+
+                    <h3>
+                        Convenient Shopping
+                    </h3>
+
+                    <p>
+                        Browse products online and place your
+                        order easily from anywhere.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTACT -->
+
+        <section class="about-contact">
+
+            <h2>
+                Ready To Shop?
+            </h2>
+
+            <p>
+                Explore our products and discover our latest deals.
+            </p>
+
+            <a href="shop.html">
+                Shop Now
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div style="
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:25px;
+        ">
+
+            <h3>
+                PRINCE ONLINE SHOP
+            </h3>
+
+            <p>
+                Your trusted online shopping destination.
+            </p>
+
+            <p>
+                © 2026 PRINCE ONLINE SHOP. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
