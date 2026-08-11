@@ -56,7 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
             updateCartCount();
 
             // Message
-            alert(name + " added to cart!");
+            alert(name + " has been added to your cart!");
+
+window.location.href = "cart.html";
         });
     });
 
