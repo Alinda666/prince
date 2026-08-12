@@ -45,12 +45,12 @@ if (form) {
             total.toLocaleString();
 
         // YOUR SHOP WHATSAPP NUMBER
-        const whatsappNumber = "256776704328";
+        const whatsappNumber =256776704328;
 
         const whatsappURL = https://api.whatsapp.com/send/?phone=256776704328;
-            "https://wa.me/" +256776703428;
-            whatsappNumber +256776704328;
-            "?text=" +256776704328;
+            "https://wa.me/" 
+            whatsappNumber 
+            "?text="
             encodeURIComponent(message);
 
         // Open WhatsApp
