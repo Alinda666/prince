@@ -2,150 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Shopping Cart - PRINCE ONLINE SHOP</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Cart - PRINCE ONLINE SHOP</title>
 
     <style>
-        /* ==============================
-           CART PAGE
-        ============================== */
-
-        .cart-page {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+        * {
+            box-sizing: border-box;
         }
 
-        .cart-title {
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #ff6600;
+            color: white;
+            padding: 25px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
-        .cart-title h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+        header h1 {
+            margin: 0;
         }
 
-        .cart-title p {
-            color: #777;
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        #cart-items {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cart-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
         .cart-item {
-            display: grid;
-            grid-template-columns: 1fr auto auto auto;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 25px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background: #fff;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
         }
 
-        .cart-product h3 {
-            margin: 0 0 8px;
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
         }
 
-        .cart-product p {
-            margin: 0;
-            color: #777;
+        .product-price {
+            color: #666;
+            margin-top: 5px;
         }
 
-        .cart-quantity {
+        .quantity {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .quantity-btn {
-            width: 35px;
-            height: 35px;
+        .quantity button {
+            width: 40px;
+            height: 40px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             background: #ff6600;
             color: white;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
         }
 
-        .quantity-btn:hover {
-            opacity: 0.8;
-        }
-
-        .quantity {
+        .quantity span {
             min-width: 30px;
             text-align: center;
             font-weight: bold;
         }
 
-        .cart-price {
+        .item-total {
             font-weight: bold;
-            white-space: nowrap;
+            font-size: 18px;
         }
 
-        .remove-btn {
-            border: none;
+        .remove-button {
             background: #e53935;
             color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 7px;
             cursor: pointer;
         }
 
-        .remove-btn:hover {
-            background: #c62828;
+        .remove-button:hover {
+            opacity: 0.85;
         }
 
-        /* ==============================
-           CART SUMMARY
-        ============================== */
-
-        .cart-summary {
-            max-width: 450px;
-            margin: 40px 0 40px auto;
+        .summary {
+            margin-top: 30px;
             padding: 25px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
             background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #ddd;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
+            font-size: 20px;
         }
 
-        .summary-total {
+        .total-row {
             border-top: 1px solid #ddd;
-            padding-top: 15px;
-            font-size: 22px;
+            padding-top: 20px;
+            font-size: 28px;
             font-weight: bold;
+            color: #ff6600;
         }
 
         .cart-buttons {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .continue-shopping,
         .checkout-button {
             flex: 1;
+            padding: 16px;
             text-align: center;
-            padding: 14px;
-            border-radius: 6px;
             text-decoration: none;
+            border-radius: 8px;
             font-weight: bold;
+            font-size: 17px;
         }
 
         .continue-shopping {
@@ -163,9 +165,7 @@
             opacity: 0.85;
         }
 
-        /* ==============================
-           EMPTY CART
-        ============================== */
+        /* EMPTY CART */
 
         .empty-cart {
             text-align: center;
@@ -183,118 +183,73 @@
             margin-bottom: 25px;
         }
 
-        /* ==============================
-           MOBILE
-        ============================== */
+        .shop-button {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
 
-        @media (max-width: 768px) {
+        @media (max-width: 700px) {
 
             .cart-item {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .cart-quantity {
-                justify-content: flex-start;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .cart-buttons {
                 flex-direction: column;
             }
 
-            .cart-title h1 {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ==============================
-         HEADER
-    ============================== -->
+<header>
+    <h1>PRINCE ONLINE SHOP</h1>
+</header>
 
-    <header>
+<div class="container">
 
-        <div class="logo">
-            <a href="index.html">
-                PRINCE ONLINE SHOP
-            </a>
-        </div>
+    <a href="index.html" class="back">
+        ← Continue Shopping
+    </a>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">🛒 Cart</a>
-        </nav>
+    <div class="cart-box">
 
-    </header>
+        <h2>Your Shopping Cart</h2>
 
-
-    <!-- ==============================
-         CART
-    ============================== -->
-
-    <main class="cart-page">
-
-        <div class="cart-title">
-
-            <h1>Your Shopping Cart</h1>
-
-            <p>
-                Review your products before checkout.
-            </p>
-
-        </div>
-
-
-        <!-- PRODUCTS WILL APPEAR HERE -->
-
+        <!-- CART PRODUCTS APPEAR HERE -->
         <div id="cart-items"></div>
 
-
-        <!-- ==============================
-             SUMMARY
-        ============================== -->
-
-        <div class="cart-summary">
-
-            <h2>Order Summary</h2>
+        <!-- SUMMARY -->
+        <div class="summary">
 
             <div class="summary-row">
-
                 <span>Subtotal</span>
-
-                <strong id="cart-subtotal">
-                    UGX 70000
-                </strong>
-
+                <strong id="cart-subtotal">UGX 0</strong>
             </div>
 
-
-            <div class="summary-row summary-total">
-
+            <div class="summary-row total-row">
                 <span>Total</span>
-
-                <strong id="cart-total">
-                    UGX 60000
-                </strong>
-
+                <strong id="cart-total">UGX 0</strong>
             </div>
-
 
             <div class="cart-buttons">
 
-                <a href="index.html"
-                   class="continue-shopping">
+                <a
+                    href="index.html"
+                    class="continue-shopping">
                     Continue Shopping
                 </a>
 
-                <a href="checkout.html"
-                   class="checkout-button">
+                <a
+                    href="checkout.html"
+                    class="checkout-button">
                     Checkout
                 </a>
 
@@ -302,38 +257,12 @@
 
         </div>
 
-    </main>
+    </div>
 
+</div>
 
-    <!-- ==============================
-         WHATSAPP
-    ============================== -->
+<!-- IMPORTANT -->
+<script src="cart.js"></script>
 
-    <a href="https://wa.me/256776704328?text=Hello%20PRINCE%20ONLINE%20SHOP,%20I%20need%20help%20with%20my%20order."
-       target="_blank"
-       style="
-           position: fixed;
-           right: 25px;
-           bottom: 25px;
-           width: 60px;
-           height: 60px;
-           background: #25D366;
-           color: white;
-           border-radius: 50%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           font-size: 28px;
-           text-decoration: none;
-           z-index: 9999;
-           box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-       ">
-    💬
-</a>
-
-
-    <!-- CART JAVASCRIPT -->
-
-    <script src="cart.js"></script>
 </body>
 </html>
