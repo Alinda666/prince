@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Product - PRINCE ONLINE SHOP</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <style>
+
+        /* =====================================
+           PRODUCT PAGE
+        ===================================== */
+
+        .product-page {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .product-detail {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .product-discount {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+            background: #ff6600;
+            color: white;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-weight: 700;
+        }
+
+        .product-info h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            color: #ff9900;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .product-price {
+            margin-bottom: 25px;
+        }
+
+        .product-old-price {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+
+        .product-new-price {
+            color: #ff6600;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 25px;
+        }
+
+        .quantity-box button {
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid #ddd;
+            background: white;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .quantity-box input {
+            width: 60px;
+            height: 40px;
+
+            text-align: center;
+
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            font-size: 16px;
+        }
+
+        .add-product-button {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #ff6600;
+            color: white;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .add-product-button:hover {
+            background: #e65c00;
+        }
+
+        .buy-now-button {
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 12px;
+
+            border: 2px solid #222;
+            border-radius: 30px;
+
+            background: white;
+            color: #222;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .buy-now-button:hover {
+            background: #222;
+            color: white;
+        }
+
+        .product-features {
+            margin-top: 30px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 10px;
+        }
+
+        .feature {
+            padding: 15px;
+
+            background: #f7f7f7;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        .feature i {
+            display: block;
+
+            color: #ff6600;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .product-detail {
+                grid-template-columns: 1fr;
+
+                padding: 20px;
+
+                gap: 25px;
+            }
+
+            .product-info h1 {
+                font-size: 28px;
+            }
+
+            .product-new-price {
+                font-size: 25px;
+            }
+
+            .product-features {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="top-bar">
+
+        <p>
+            🚚 Free Shipping on Orders Over $50
+        </p>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h2>
+                PRINCE <span>SHOP</span>
+            </h2>
+
+        </div>
+
+
+        <div class="icons">
+
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+            </a>
+
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+
+            <a href="account.html">
+                <i class="far fa-user"></i>
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- PRODUCT -->
+
+<main class="product-page">
+
+    <a href="index.html" class="back-link">
+        ← Continue Shopping
+    </a>
+
+
+    <div class="product-detail">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-image">
+
+            <span class="product-discount">
+                -35%
+            </span>
+
+            <img
+                src="phone.jpg"
+                alt="iPhone 16"
+            >
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-info">
+
+            <h1>
+                iPhone 16
+            </h1>
+
+
+            <div class="product-rating">
+
+                ★★★★★
+
+                <span>
+                    (25 Reviews)
+                </span>
+
+            </div>
+
+
+            <p class="product-description">
+
+                Discover the powerful iPhone 16 with
+                modern design, excellent performance,
+                high-quality camera and long-lasting
+                battery life.
+
+            </p>
+
+
+            <!-- PRICE -->
+
+            <div class="product-price">
+
+                <span class="product-old-price">
+                    UGX 12,000
+                </span>
+
+                <span class="product-new-price">
+                    UGX 7,800
+                </span>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-box">
+
+                <strong>
+                    Quantity:
+                </strong>
+
+                <button
+                    type="button"
+                    id="minus">
+                    -
+                </button>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="20">
+
+                <button
+                    type="button"
+                    id="plus">
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="add-product-button"
+                id="add-product">
+
+                <i class="fas fa-shopping-cart"></i>
+
+                Add To Cart
+
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-now-button"
+                id="buy-now">
+
+                Buy Now
+
+            </button>
+
+
+            <!-- FEATURES -->
+
+            <div class="product-features">
+
+                <div class="feature">
+
+                    <i class="fas fa-truck"></i>
+
+                    Fast Delivery
+
+                </div>
+
+
+                <div class="feature">
+
+                    <i class="fas fa-shield-alt"></i>
+
+                    Secure Shopping
+
+                </div>
+
+
+                <div class="feature">
+
+                    <i class="fas fa-undo"></i>
+
+                    Easy Returns
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="account-footer">
+
+    <p>
+        © 2026 PRINCE ONLINE SHOP.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- PRODUCT JAVASCRIPT -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const quantity =
+            document.getElementById("quantity");
+
+
+        const minus =
+            document.getElementById("minus");
+
+
+        const plus =
+            document.getElementById("plus");
+
+
+        const addButton =
+            document.getElementById("add-product");
+
+
+        const buyButton =
+            document.getElementById("buy-now");
+
+
+        /* =========================
+           QUANTITY
+        ========================= */
+
+        plus.addEventListener(
+            "click",
+            function () {
+
+                let value =
+                    Number(quantity.value);
+
+                if (value < 20) {
+
+                    quantity.value =
+                        value + 1;
+
+                }
+
+            }
+        );
+
+
+        minus.addEventListener(
+            "click",
+            function () {
+
+                let value =
+                    Number(quantity.value);
+
+                if (value > 1) {
+
+                    quantity.value =
+                        value - 1;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           ADD TO CART
+        ========================= */
+
+        addButton.addEventListener(
+            "click",
+            function () {
+
+
+                const name =
+                    "iPhone 16";
+
+
+                const price =
+                    7800;
+
+
+                const qty =
+                    Number(quantity.value);
+
+
+                let cart =
+                    JSON.parse(
+                        localStorage.getItem("cart")
+                    ) || [];
+
+
+                const existing =
+                    cart.find(
+                        function (item) {
+
+                            return item.name === name;
+
+                        }
+                    );
+
+
+                if (existing) {
+
+                    existing.quantity += qty;
+
+                } else {
+
+                    cart.push({
+
+                        name: name,
+
+                        price: price,
+
+                        quantity: qty
+
+                    });
+
+                }
+
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+
+                addButton.innerHTML =
+                    "✓ Added To Cart";
+
+
+                setTimeout(
+                    function () {
+
+                        addButton.innerHTML =
+                            '<i class="fas fa-shopping-cart"></i> Add To Cart';
+
+                    },
+                    1500
+                );
+
+            }
+        );
+
+
+        /* =========================
+           BUY NOW
+        ========================= */
+
+        buyButton.addEventListener(
+            "click",
+            function () {
+
+
+                addButton.click();
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "checkout.html";
+
+                    },
+                    300
+                );
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
