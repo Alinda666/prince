@@ -1,170 +1,252 @@
-document.addEventListener("DOMContentLoaded", function () {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    // Get cart from localStorage
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    <title>Checkout - PRINCE ONLINE SHOP</title>
 
-    // Get elements from checkout.html
-    const orderItems = document.getElementById("order-items");
-    const orderTotal = document.getElementById("order-total");
-    const form = document.getElementById("checkout-form");
-
-    // Calculate and display the cart
-    if (cart.length === 0) {
-
-        orderItems.innerHTML = `
-            <div class="empty">
-                <h3>Your cart is empty</h3>
-                <p>Please add a product before checking out.</p>
-                <a href="index.html" class="shop-button">
-                    Continue Shopping
-                </a>
-            </div>
-        `;
-
-        orderTotal.textContent = "UGX 0";
-
-        return;
-    }
-
-    let total = 0;
-
-    let itemsHTML = "";
-
-    cart.forEach(function (item) {
-
-        const price = Number(item.price) || 0;
-        const quantity = Number(item.quantity) || 1;
-
-        const itemTotal = price * quantity;
-
-        total += itemTotal;
-
-        itemsHTML += `
-            <div class="cart-item">
-                <strong>${item.name}</strong><br>
-                Price: UGX ${price.toLocaleString()}<br>
-                Quantity: ${quantity}<br>
-                Subtotal: UGX ${itemTotal.toLocaleString()}
-            </div>
-        `;
-    });
-
-    orderItems.innerHTML = itemsHTML;
-
-    orderTotal.textContent =
-        "UGX " + total.toLocaleString();
-
-
-    // PLACE ORDER
-    form.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const phone =
-            document.getElementById("phone").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const address =
-            document.getElementById("address").value.trim();
-
-        const payment =
-            document.getElementById("payment").value;
-
-
-        // Check required information
-        if (!name || !phone || !address || !payment) {
-
-            alert("Please fill in all required information.");
-
-            return;
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-
-        // Create WhatsApp order message
-        let message =
-            "🛒 NEW ORDER - PRINCE ONLINE SHOP\n\n";
-
-        message +=
-            "👤 Customer: " + name + "\n";
-
-        message +=
-            "📞 Phone: " + phone + "\n";
-
-        if (email) {
-
-            message +=
-                "📧 Email: " + email + "\n";
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
         }
 
-        message +=
-            "📍 Delivery Address: " + address + "\n";
+        header {
+            background: #ff6600;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
 
-        message +=
-            "💳 Payment Method: " + payment + "\n\n";
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item strong {
+            font-size: 18px;
+        }
+
+        .cart-total {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6600;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .place-order {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            background: #ff6600;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .place-order:hover {
+            background: #e65c00;
+        }
+
+        .whatsapp-note {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e9fff0;
+            border-radius: 8px;
+            color: #16753a;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .shop-button {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>PRINCE ONLINE SHOP</h1>
+</header>
+
+<div class="container">
+
+    <a href="cart.html" class="back">← Back to Cart</a>
+
+    <!-- ORDER SUMMARY -->
+    <div class="box">
+        <h2>Your Order</h2>
+
+        <div id="order-items">
+            <!-- Cart products will appear here -->
+        </div>
+
+        <div class="cart-total">
+            Total: <span id="order-total">UGX 0</span>
+        </div>
+    </div>
 
 
-        message +=
-            "🛍️ ORDER ITEMS\n";
+    <!-- CUSTOMER INFORMATION -->
+    <div class="box">
 
-        message +=
-            "-------------------------\n";
+        <h2>Customer Information</h2>
+
+        <form id="checkout-form">
+
+            <label for="name">Full Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="phone">Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+            >
+
+            <label for="address">Delivery Address</label>
+            <textarea
+                id="address"
+                name="address"
+                placeholder="Enter your delivery address"
+                required
+            ></textarea>
+
+            <label for="payment">Payment Method</label>
+
+            <select id="payment" name="payment" required>
+
+                <option value="">
+                    Select payment method
+                </option>
+
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
+
+                <option value="Mobile Money">
+                    Mobile Money
+                </option>
+
+                <option value="Bank Transfer">
+                    Bank Transfer
+                </option>
+
+            </select>
 
 
-        cart.forEach(function (item) {
+            <button type="submit" class="place-order">
+                Place Order on WhatsApp
+            </button>
 
-            const price =
-                Number(item.price) || 0;
+        </form>
 
-            const quantity =
-                Number(item.quantity) || 1;
+        <div class="whatsapp-note">
+            📱 After clicking "Place Order", WhatsApp will open with your
+            order details. Please press <strong>Send</strong> to send the order.
+        </div>
 
-            const itemTotal =
-                price * quantity;
+    </div>
 
-            message +=
-                "• " +
-                item.name +
-                " × " +
-                quantity +
-                " = UGX " +
-                itemTotal.toLocaleString() +
-                "\n";
-        });
+</div>
 
 
-        message +=
-            "-------------------------\n";
+<!-- IMPORTANT: checkout.js must be loaded -->
+<script src="checkout.js"></script>
 
-        message +=
-            "💰 TOTAL: UGX " +
-            total.toLocaleString();
-
-
-        // YOUR SHOP WHATSAPP NUMBER
-        const whatsappNumber =
-            "256776704328";
-
-
-        // Create WhatsApp URL
-        const whatsappURL =
-            "https://wa.me/" +
-            whatsappNumber +
-            "?text=" +
-            encodeURIComponent(message);
-
-
-        // Open WhatsApp
-        window.open(whatsappURL, "_blank");
-
-
-        // DO NOT REMOVE THE CART YET
-        // Customer must send the WhatsApp message first.
-
-    });
-
-});
+</body>
+</html>
