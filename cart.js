@@ -243,7 +243,7 @@ function removeProduct(index) {
     location.reload();
 }
 
-<script src="cart.js"></script>
+<script src="cart.js?v=2"></script>
 
 </body>
 </html>
