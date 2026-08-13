@@ -242,3 +242,8 @@ function removeProduct(index) {
 
     location.reload();
 }
+
+<script src="cart.js"></script>
+
+</body>
+</html>
