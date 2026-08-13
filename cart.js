@@ -108,10 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
             document.getElementById("cart-subtotal").textContent =
-                "UGX 0";
+                "UGX 60000";
 
             document.getElementById("cart-total").textContent =
-                "UGX 0";
+                "UGX 60000";
 
             return;
         }
