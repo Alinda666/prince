@@ -1,59 +1,33 @@
-/* =========================================
-   PRINCE ONLINE SHOP - SEARCH.JS
-========================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const searchInput =
-        document.querySelector(".search-box input");
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const productGrid = document.querySelector(".product-grid");
 
-    const searchButton =
-        document.querySelector(".search-box button");
-
-    const productGrid =
-        document.querySelector(".product-grid");
-
-
-    /* =====================================
-       SEARCH FUNCTION
-    ===================================== */
+    if (!searchInput || !searchButton || !productGrid) {
+        console.log("Search elements not found.");
+        return;
+    }
 
     function searchProducts() {
 
-        if (!searchInput || !productGrid) {
-            return;
-        }
-
         const searchText =
-            searchInput.value
-                .toLowerCase()
-                .trim();
-
+            searchInput.value.toLowerCase().trim();
 
         const products =
-            productGrid.querySelectorAll(
-                ".product-card"
-            );
+            productGrid.querySelectorAll(".product-card");
 
-
-        let foundProducts = 0;
-
+        let found = 0;
 
         products.forEach(function (product) {
 
-            const nameElement =
+            const name =
                 product.querySelector("h3");
 
-
-            if (!nameElement) {
-                return;
-            }
-
+            if (!name) return;
 
             const productName =
-                nameElement.textContent
-                    .toLowerCase();
-
+                name.textContent.toLowerCase();
 
             if (
                 searchText === "" ||
@@ -62,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 product.style.display = "";
 
-                foundProducts++;
+                found++;
 
             } else {
 
@@ -72,49 +46,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
+        let message =
+            document.getElementById("no-search-results");
 
-        /* =================================
-           NO RESULTS MESSAGE
-        ================================= */
+        if (found === 0) {
 
-        let noResults =
-            document.getElementById(
-                "no-results"
-            );
+            if (!message) {
 
+                message =
+                    document.createElement("p");
 
-        if (foundProducts === 0) {
+                message.id =
+                    "no-search-results";
 
-            if (!noResults) {
+                message.textContent =
+                    "No products found.";
 
-                noResults =
-                    document.createElement("div");
-
-                noResults.id =
-                    "no-results";
-
-                noResults.innerHTML = `
-                    <h2>No products found</h2>
-                    <p>
-                        Try searching for another product.
-                    </p>
-                `;
-
-                noResults.style.textAlign =
+                message.style.textAlign =
                     "center";
 
-                noResults.style.padding =
-                    "40px";
+                message.style.padding =
+                    "30px";
 
-                productGrid.appendChild(
-                    noResults
-                );
+                productGrid.appendChild(message);
             }
 
         } else {
 
-            if (noResults) {
-                noResults.remove();
+            if (message) {
+                message.remove();
             }
 
         }
@@ -122,61 +82,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =====================================
-       SEARCH WHILE TYPING
-    ===================================== */
+    /* Search button */
 
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            searchProducts
-        );
-
-    }
+    searchButton.addEventListener(
+        "click",
+        searchProducts
+    );
 
 
-    /* =====================================
-       SEARCH BUTTON
-    ===================================== */
+    /* Search while typing */
 
-    if (searchButton) {
+    searchInput.addEventListener(
+        "input",
+        searchProducts
+    );
 
-        searchButton.addEventListener(
-            "click",
-            function (event) {
+
+    /* Search when pressing Enter */
+
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
 
                 event.preventDefault();
 
                 searchProducts();
 
             }
-        );
 
-    }
-
-
-    /* =====================================
-       ENTER KEY
-    ===================================== */
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (event.key === "Enter") {
-
-                    event.preventDefault();
-
-                    searchProducts();
-
-                }
-
-            }
-        );
-
-    }
+        }
+    );
 
 });
