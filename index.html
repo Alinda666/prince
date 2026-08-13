@@ -7,27 +7,26 @@
 
 <title>PRINCE ONLINE SHOP</title>
 
-<!-- Google Font -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-<!-- Font Awesome -->
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<!-- CSS -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-  <a
+
+<!-- WHATSAPP BUTTON -->
+
+<a
     href="https://wa.me/256776704328?text=Hello%20PRINCE%20ONLINE%20SHOP,%20I%20would%20like%20to%20make%20an%20order."
     class="whatsapp-button"
     target="_blank"
@@ -35,387 +34,475 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     💬
 </a>
 
+
 <!-- HEADER -->
 
 <header class="header">
 
-<div class="top-bar">
+    <div class="top-bar">
+        <p>🚚 Free Shipping on Orders Over $50</p>
+    </div>
 
-<p>🚚 Free Shipping on Orders Over $50</p>
+    <nav class="navbar">
 
-</div>
+        <div class="logo">
+            <h2>PRINCE <span>SHOP</span></h2>
+        </div>
 
-<nav class="navbar">
 
-<div class="logo">
+        <!-- SEARCH -->
 
-<h2>PRINCE <span>SHOP</span></h2>
+        <div class="search-box">
 
-</div>
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search products..."
+            >
 
-<div class="search-box">
+            <button
+                type="button"
+                id="search-button">
 
-    <input
-        type="text"
-        id="search-input"
-        placeholder="Search products..."
-    >
+                <i class="fas fa-search"></i>
 
-    <button
-        type="button"
-        id="search-button">
-        <i class="fas fa-search"></i>
-    </button>
-  
+            </button>
 
-</div>
+        </div>
 
-<ul class="nav-links">
 
-<li><a href="#">Home</a></li>
+        <!-- NAVIGATION -->
 
-<li><a href="#">Shop</a></li>
+        <ul class="nav-links">
 
-<li><a href="#">Categories</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Flash Sale</a></li>
+            <li><a href="#">Contact</a></li>
 
-<li><a href="#">Flash Sale</a></li>
+        </ul>
 
-<li><a href="#">Contact</a></li>
 
-</ul>
+        <!-- ICONS -->
 
-<div class="icons">
+        <div class="icons">
 
-<a href="#"><i class="far fa-heart"></i></a>
+            <a href="#">
+                <i class="far fa-heart"></i>
+            </a>
 
-<a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
 
-<a href="#"><i class="far fa-user"></i></a>
+            <a href="#">
+                <i class="far fa-user"></i>
+            </a>
 
-</div>
+        </div>
 
-</nav>
+    </nav>
 
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-text">
+    <div class="hero-text">
 
-<h4>🔥 FLASH SALE</h4>
+        <h4>🔥 FLASH SALE</h4>
 
-<h1>UP TO <span>80% OFF</span></h1>
+        <h1>
+            UP TO <span>80% OFF</span>
+        </h1>
 
-<p>Discover thousands of amazing products at unbeatable prices.</p>
+        <p>
+            Discover thousands of amazing products at unbeatable prices.
+        </p>
 
-<div class="buttons">
+        <div class="buttons">
 
-<a href="#" class="btn">Shop Now</a>
+            <a href="#products" class="btn">
+                Shop Now
+            </a>
 
-<a href="#" class="btn-outline">Today's Deals</a>
+            <a href="#products" class="btn-outline">
+                Today's Deals
+            </a>
 
-</div>
+        </div>
 
-<div class="countdown">
 
-<div>
+        <!-- COUNTDOWN -->
 
-<h2 id="days">00</h2>
+        <div class="countdown">
 
-<p>Days</p>
+            <div>
+                <h2 id="days">00</h2>
+                <p>Days</p>
+            </div>
 
-</div>
+            <div>
+                <h2 id="hours">00</h2>
+                <p>Hours</p>
+            </div>
 
-<div>
+            <div>
+                <h2 id="minutes">00</h2>
+                <p>Minutes</p>
+            </div>
 
-<h2 id="hours">00</h2>
+            <div>
+                <h2 id="seconds">00</h2>
+                <p>Seconds</p>
+            </div>
 
-<p>Hours</p>
+        </div>
 
-</div>
+    </div>
 
-<div>
 
-<h2 id="minutes">00</h2>
+    <div class="hero-image">
 
-<p>Minutes</p>
+        <img
+            src="images/hero.png"
+            alt="Shopping">
 
-</div>
-
-<div>
-
-<h2 id="seconds">00</h2>
-
-<p>Seconds</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="images/hero.png" alt="Shopping">
-
-</div>
+    </div>
 
 </section>
+
 
 <!-- CATEGORIES -->
 
 <section class="categories">
 
-<h2>Shop By Category</h2>
-
-<div class="category-grid">
-
-<div class="category-card">👟 Shoes</div>
-
-<div class="category-card">📱 Phones</div>
-
-<div class="category-card">💻 Computers</div>
-
-<div class="category-card">⌚ Watches</div>
-
-<div class="category-card">👗 Fashion</div>
-
-<div class="category-card">🛋 Furniture</div>
-
-<div class="category-card">🎧 Electronics</div>
-
-<div class="category-card">🏠 Home</div>
-
-</div>
-
-
-    class="ad<section class="products">
-
-
-<div class="product-card">
-
-<span class="discount">-50%</span>
-
-<img src="shoe1.jpg" alt="Nike Air Max">
-
-<h3>Nike Air Max</h3>
-
-<div class="price">
-
-<span class="old">ugx 70,000</span>
-
-<span class="new">ugx 60,000</span>
-  
-</div>
-  
-  <button class="add-to-cart">Add To Cart</button>
-  
-        class="add-to-cart"
-        data-name="Nike Air Max"
-        data-price="60000">
-  
-        Add To Cart
-
-    </button>
-
-</div>
-
-  
-  </div>
-
-   <div class="product-grid">
-     
-    <div class="product-card">
-
-<span class="discount">-40%</span>
-
-<img src="iphone.jpg" alt="iphone 16">
-
-<h3>iphone 16</h3>
-
-<div class="price">
-
-<span class="old">ugx 1,200,000</span>
-
-<span class="new">ugx 1,100,000</span>
-  
-</div>
-        
-<button
-        class="add-to-cart"
-        data-name="iphone 16"
-        data-price="1100000">
-  
-        Add To Cart
-  
-    </button>
-
-</div>
-
-      
-</div>
-
-      
-<div class="product-card">
-
-<span class="discount">-40%</span>
-
-<img src="laptop.jpg" alt="">
-
-<h3>Gaming Laptop</h3>
-
-<div class="price">
-
-<span class="old">$1400</span>
-
-<span class="new">$840</span>
-
-
-</div>
-
-  
-<button>Add To Cart</button>
-
-</div>
-
-<div class="product-card">
-
-<span class="discount">-60%</span>
-
-<img src="watch.jpg" alt="">
-
-<h3>Luxury Watch</h3>
-
-<div class="price">
-
-<span class="old">$250</span>
-
-<span class="new">$99</span>
-
-</div>
-
-<button>Add To Cart</button>
-
-</div>
-
-<div class="product-card">
-
-<span class="discount">-35%</span>
-
-<img src="phone.jpg" alt="">
-
-<h3>iPhone 16</h3>
-
-<div class="<price">
-
-<span class="old">ugx 12000</span>
-
-<span class="new">ugx 7800</span>
-
-</div>
-
-<button>Add To Cart</button>
-
-</div>
-
-
-<div class="product-card">
-
-<span class="discount">-40%</span>
-
-<img src="motocyle.jpg" alt="">
-
-<h3>motocyle</h3>
-
-<div class="price">
-
-<span class="old">ugx 2000000</span>
-
-<span class="new">ugx 1500000</span>
-
-</div>
-
-<button>Add To Cart</button>
-
-</div>
-
-  
-  <div class="product-card">
-
-<span class="discount">-40%</span>
-
-<img src="kitchen ceramic tiles.jpg" alt="">
-
-<h3> ceramic tiles</h3>
-
-<div class="price">
-
-<span class="old">ugx 45000</span>
-
-<span class="new">ugx 42000</span>
-
-</div>
-
-<button class="add-to-cart">Add To Cart</button>
-
-</div>
+    <h2>Shop By Category</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card">👟 Shoes</div>
+        <div class="category-card">📱 Phones</div>
+        <div class="category-card">💻 Computers</div>
+        <div class="category-card">⌚ Watches</div>
+        <div class="category-card">👗 Fashion</div>
+        <div class="category-card">🛋 Furniture</div>
+        <div class="category-card">🎧 Electronics</div>
+        <div class="category-card">🏠 Home</div>
+
+    </div>
 
 </section>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+    <h2>Flash Deals</h2>
+
+    <div class="product-grid">
+
+
+        <!-- NIKE -->
+
+        <div class="product-card">
+
+            <span class="discount">-50%</span>
+
+            <img
+                src="shoe1.jpg"
+                alt="Nike Air Max">
+
+            <h3>Nike Air Max</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 70,000
+                </span>
+
+                <span class="new">
+                    UGX 60,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Nike Air Max"
+                data-price="60000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- IPHONE -->
+
+        <div class="product-card">
+
+            <span class="discount">-40%</span>
+
+            <img
+                src="iphone.jpg"
+                alt="iPhone 16">
+
+            <h3>iPhone 16</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 1,200,000
+                </span>
+
+                <span class="new">
+                    UGX 1,100,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="iPhone 16"
+                data-price="1100000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- GAMING LAPTOP -->
+
+        <div class="product-card">
+
+            <span class="discount">-40%</span>
+
+            <img
+                src="laptop.jpg"
+                alt="Gaming Laptop">
+
+            <h3>Gaming Laptop</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 1,400,000
+                </span>
+
+                <span class="new">
+                    UGX 840,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Gaming Laptop"
+                data-price="840000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- WATCH -->
+
+        <div class="product-card">
+
+            <span class="discount">-60%</span>
+
+            <img
+                src="watch.jpg"
+                alt="Luxury Watch">
+
+            <h3>Luxury Watch</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 250,000
+                </span>
+
+                <span class="new">
+                    UGX 99,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Luxury Watch"
+                data-price="99000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- MOTORCYCLE -->
+
+        <div class="product-card">
+
+            <span class="discount">-40%</span>
+
+            <img
+                src="motocyle.jpg"
+                alt="Motorcycle">
+
+            <h3>Motorcycle</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 2,000,000
+                </span>
+
+                <span class="new">
+                    UGX 1,500,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Motorcycle"
+                data-price="1500000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+
+        <!-- CERAMIC TILES -->
+
+        <div class="product-card">
+
+            <span class="discount">-40%</span>
+
+            <img
+                src="kitchen ceramic tiles.jpg"
+                alt="Ceramic Tiles">
+
+            <h3>Ceramic Tiles</h3>
+
+            <div class="price">
+
+                <span class="old">
+                    UGX 45,000
+                </span>
+
+                <span class="new">
+                    UGX 42,000
+                </span>
+
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Ceramic Tiles"
+                data-price="42000">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- NEWSLETTER -->
 
 <section class="newsletter">
 
-<h2>Get Exclusive Deals</h2>
+    <h2>Get Exclusive Deals</h2>
 
-<p>Subscribe and receive special offers every week.</p>
+    <p>
+        Subscribe and receive special offers every week.
+    </p>
 
-<input type="email" placeholder="Enter your email">
+    <input
+        type="email"
+        placeholder="Enter your email">
 
-<button>Subscribe</button>
+    <button>
+        Subscribe
+    </button>
 
 </section>
 
-<!-- FOOTER -->
 
-<footer>
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
     <div class="footer-container">
 
-        <div class="footer-column">
-            <h2>PRINCE ONLINE SHOP</h2>
-            <p>Your trusted online shopping destination.</p>
-        </div>
 
         <div class="footer-column">
+
+            <h2>PRINCE ONLINE SHOP</h2>
+
+            <p>
+                Your trusted online shopping destination.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
             <h3>Quick Links</h3>
+
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+
         </div>
 
+
         <div class="footer-column">
+
             <h3>Contact Us</h3>
 
             <a href="tel:+256776704328">
                 📞 Call: +256 776 704 328
             </a>
 
-            <a href="https://wa.me/256776704328" target="_blank">
+            <a
+                href="https://wa.me/256776704328"
+                target="_blank">
+
                 💬 WhatsApp
+
             </a>
 
             <a href="mailto:princeonlineshop@gmail.com">
                 ✉️ Email Us
             </a>
+
         </div>
 
+
         <div class="footer-column">
+
             <h3>Follow Us</h3>
 
             <div class="social-links">
@@ -445,57 +532,31 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
                 </a>
 
             </div>
+
         </div>
 
     </div>
 
+
     <div class="footer-bottom">
-        <p>© 2026 PRINCE ONLINE SHOP. All Rights Reserved.</p>
+
+        <p>
+            © 2026 PRINCE ONLINE SHOP.
+            All Rights Reserved.
+        </p>
+
     </div>
 
 </footer>
 
 
-</div>
+<!-- JAVASCRIPT -->
 
-<div>
-
-<h3>Quick Links</h3>
-
-<p>About</p>
-
-<p>Contact</p>
-
-<p>Privacy Policy</p>
-
-</div>
-
-<div>
-
-<h3>Customer Care</h3>
-
-<p>Returns</p>
-
-<p>Shipping</p>
-
-<p>FAQs</p>
-
-</div>
-
-</div>
-
-<p class="copyright">
-
-© 2026 PRINCE ONLINE SHOP. All Rights Reserved.
-
-</p>
-
-</footer>
-  
 <script src="cart.js"></script>
 <script src="script.js"></script>
-
+<script src="products.js"></script>
+<script src="search.js"></script>
+<script src="countdown.js"></script>
 
 </body>
 </html>
-
