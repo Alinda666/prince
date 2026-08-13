@@ -42,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             localStorage.setItem("cart", JSON.stringify(cart));
-
-alert(name + " added to cart!");
+            window.location.href = "cart.html";
             
             );
 
