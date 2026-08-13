@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(name + " added to cart!");
-            
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
             );
 
             console.log("CART SAVED:", cart);
@@ -108,10 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
             document.getElementById("cart-subtotal").textContent =
-                "UGX 60000";
+                "UGX 0";
 
             document.getElementById("cart-total").textContent =
-                "UGX 60000";
+                "UGX 0";
 
             return;
         }
