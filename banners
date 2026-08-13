@@ -1,0 +1,66 @@
+<!-- ==============================
+     SHOPPING BANNERS
+================================ -->
+
+<section class="banners-section">
+
+    <div class="banners-container">
+
+        <!-- MAIN BANNER -->
+        <div class="main-banner">
+
+            <h4>🔥 LIMITED TIME OFFER</h4>
+
+            <h2>UP TO 80% OFF</h2>
+
+            <p>
+                Shop amazing products at unbeatable prices.
+                Don't miss today's special deals!
+            </p>
+
+            <a href="#products" class="banner-button">
+                Shop Now →
+            </a>
+
+        </div>
+
+
+        <!-- SMALL BANNERS -->
+        <div class="small-banners">
+
+            <!-- FASHION -->
+            <div class="small-banner banner-fashion">
+
+                <h3>👟 Fashion Sale</h3>
+
+                <p>
+                    Shoes & Fashion from UGX 30,000
+                </p>
+
+                <a href="#products">
+                    Shop Fashion →
+                </a>
+
+            </div>
+
+
+            <!-- ELECTRONICS -->
+            <div class="small-banner banner-electronics">
+
+                <h3>📱 Electronics</h3>
+
+                <p>
+                    Amazing deals on phones & gadgets
+                </p>
+
+                <a href="#products">
+                    Shop Electronics →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
