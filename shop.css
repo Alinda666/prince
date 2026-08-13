@@ -1,0 +1,500 @@
+/* =========================================
+   PRINCE ONLINE SHOP - SHOP.CSS
+========================================= */
+
+/* SHOP PAGE */
+
+.shop-page {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+/* SHOP HEADER */
+
+.shop-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.shop-header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.shop-header p {
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* SHOP LAYOUT */
+
+.shop-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+}
+
+
+/* FILTER SIDEBAR */
+
+.shop-sidebar {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    height: fit-content;
+}
+
+.shop-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group h4 {
+    margin-bottom: 12px;
+}
+
+.filter-group label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.filter-group input {
+    margin-right: 8px;
+}
+
+
+/* PRICE FILTER */
+
+.price-inputs {
+    display: flex;
+    gap: 8px;
+}
+
+.price-inputs input {
+    width: 50%;
+    padding: 9px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+
+/* FILTER BUTTON */
+
+.filter-button {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: #ff6600;
+    color: white;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: #e65c00;
+}
+
+
+/* SHOP TOP BAR */
+
+.shop-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.shop-results {
+    color: #666;
+}
+
+.shop-sort select {
+    padding: 9px 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    background: white;
+}
+
+
+/* PRODUCT GRID */
+
+.shop-products {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* SHOP PRODUCT CARD */
+
+.shop-product-card {
+    position: relative;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+    overflow: hidden;
+}
+
+.shop-product-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+/* PRODUCT IMAGE */
+
+.shop-product-card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+
+/* DISCOUNT */
+
+.shop-discount {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    background: #ff6600;
+    color: white;
+
+    padding: 6px 10px;
+
+    border-radius: 15px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+
+/* PRODUCT NAME */
+
+.shop-product-card h3 {
+    font-size: 17px;
+
+    margin: 8px 0;
+}
+
+
+/* RATING */
+
+.shop-rating {
+    color: #ff9900;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+/* PRICE */
+
+.shop-price {
+    margin-bottom: 15px;
+}
+
+.shop-old-price {
+    color: #888;
+
+    text-decoration: line-through;
+
+    font-size: 13px;
+
+    margin-right: 8px;
+}
+
+.shop-new-price {
+    color: #ff6600;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* ADD TO CART */
+
+.shop-add-cart {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff6600;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.shop-add-cart:hover {
+    background: #e65c00;
+}
+
+
+/* BUY NOW */
+
+.shop-buy-now {
+    width: 100%;
+
+    padding: 11px;
+
+    margin-top: 8px;
+
+    border: 2px solid #222;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #222;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.shop-buy-now:hover {
+    background: #222;
+    color: white;
+}
+
+
+/* NO PRODUCTS */
+
+.no-products {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: white;
+
+    border-radius: 12px;
+}
+
+.no-products h2 {
+    margin-bottom: 10px;
+}
+
+.no-products p {
+    color: #777;
+}
+
+
+/* MOBILE FILTER BUTTON */
+
+.mobile-filter-button {
+    display: none;
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #222;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .shop-layout {
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+
+    .shop-products {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .shop-product-card img {
+        height: 190px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .shop-page {
+        padding: 30px 15px;
+    }
+
+    .shop-header h1 {
+        font-size: 30px;
+    }
+
+    .shop-layout {
+        display: block;
+    }
+
+    .mobile-filter-button {
+        display: block;
+    }
+
+    .shop-sidebar {
+        display: none;
+
+        margin-bottom: 20px;
+    }
+
+    .shop-sidebar.active {
+        display: block;
+    }
+
+    .shop-topbar {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .shop-sort select {
+        width: 100%;
+    }
+
+    .shop-products {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .shop-product-card {
+        padding: 10px;
+    }
+
+    .shop-product-card img {
+        height: 160px;
+    }
+
+    .shop-product-card h3 {
+        font-size: 14px;
+    }
+
+    .shop-new-price {
+        font-size: 17px;
+    }
+
+    .shop-add-cart,
+    .shop-buy-now {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 480px) {
+
+    .shop-header h1 {
+        font-size: 26px;
+    }
+
+    .shop-products {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .shop-product-card img {
+        height: 130px;
+    }
+
+    .shop-discount {
+        font-size: 10px;
+        padding: 5px 7px;
+    }
+
+    .shop-product-card h3 {
+        font-size: 13px;
+    }
+
+    .shop-old-price {
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    .shop-new-price {
+        font-size: 15px;
+    }
+
+}
