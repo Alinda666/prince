@@ -55,7 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update cart count
             updateCartCount();
 
-        });
+          \\ Massage
+            alert(name + "has been added to yuor cart!");
+
+ window.location.href = "cart.html"
+          });
     });
 
     updateCartCount();
