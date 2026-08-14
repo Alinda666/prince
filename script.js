@@ -1,63 +1,84 @@
 // ==========================================
-// PRINCE ONLINE SHOP - ADD TO CART
+// PRINCE ONLINE SHOP - SHOPPING CART
 // ==========================================
 
 let cart = JSON.parse(localStorage.getItem("princeCart")) || [];
 
+// Find all Add To Cart buttons
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Find ALL product buttons
-    const buttons = document.querySelectorAll(".product-card button");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
-    buttons.forEach(function (button) {
+    addToCartButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
             // Find the product card
             const productCard = button.closest(".product-card");
 
-            // Product name
-            const name = productCard.querySelector("h3").textContent.trim();
+            if (!productCard) {
+                alert("Product information not found.");
+                return;
+            }
 
-            // Product price
-            const priceText = productCard.querySelector(".price .new").textContent.trim();
+            // Get product information
+            const name = productCard.querySelector(".product-name")?.textContent.trim() || "Product";
 
-            // Convert price to number
-            const price = parseFloat(
-                priceText.replace(/[^0-9.]/g, "")
-            );
+            const priceElement = productCard.querySelector(".product-price");
 
-            // Check if product is already in cart
+            let price = 0;
+
+            if (priceElement) {
+                price = parseFloat(
+                    priceElement.textContent.replace(/[^0-9.]/g, "")
+                ) || 0;
+            }
+
+            // Check if product already exists
             const existingProduct = cart.find(function (item) {
                 return item.name === name;
             });
 
             if (existingProduct) {
-
                 existingProduct.quantity += 1;
-
             } else {
-
                 cart.push({
                     name: name,
                     price: price,
                     quantity: 1
                 });
-
             }
 
             // Save cart
-            localStorage.setItem(
-                "princeCart",
-                JSON.stringify(cart)
-            );
+            localStorage.setItem("princeCart", JSON.stringify(cart));
 
-            // Show confirmation
-            alert(name + " has been added to your cart!");
+            // Update cart count
+            updateCartCount();
 
-            console.log("Cart:", cart);
-        });
+           // Massage
+            alert(name + "has been added to yuor cart!");
 
+ window.location.href = "cart.html"
+          });
     });
 
+    updateCartCount();
 });
+
+
+// ==========================================
+// CART COUNT
+// ==========================================
+
+function updateCartCount() {
+
+    const cartCount = cart.reduce(function (total, item) {
+        return total + item.quantity;
+    }, 0);
+
+    const cartCounters = document.querySelectorAll(".cart-count");
+
+    cartCounters.forEach(function (counter) {
+        counter.textContent = cartCount;
+    });
+}
