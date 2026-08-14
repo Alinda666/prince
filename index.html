@@ -42,87 +42,98 @@
     <!-- =========================
          HEADER
     ========================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header class="header">
+<header class="header">
 
-        <div class="top-bar">
-            <p>🚚 Free Shipping on Orders Over $50</p>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <p>🚚 Free Shipping on Orders Over $50</p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+            <img
+                src="images/logo.png"
+                alt="PRINCE ONLINE SHOP"
+            >
+        </a>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search products..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="search-button"
+                aria-label="Search"
+            >
+                <i class="fas fa-search"></i>
+            </button>
+
         </div>
 
-        <nav class="navbar">
+        <!-- NAVIGATION LINKS -->
+        <ul class="nav-links">
 
-            <!-- LOGO -->
-            <div class="logo">
-                <img src="logo.png" alt="PRINCE ONLINE SHOP">
-            </div>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
 
+            <li>
+                <a href="shop.html">Shop</a>
+            </li>
 
-            <!-- SEARCH -->
-            <div class="search-box">
+            <li>
+                <a href="#categories">Categories</a>
+            </li>
 
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search products...">
+            <li>
+                <a href="#flash-sale">Flash Sale</a>
+            </li>
 
-                <button
-                    type="button"
-                    id="search-button">
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
 
-                    <i class="fas fa-search"></i>
+        </ul>
 
-                </button>
+        <!-- HEADER ICONS -->
+        <div class="icons">
 
-            </div>
+            <!-- Wishlist -->
+            <a href="#" aria-label="Wishlist">
+                <i class="far fa-heart"></i>
+            </a>
 
+            <!-- Cart -->
+            <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
 
-            <!-- NAVIGATION -->
-            <ul class="nav-links">
+            <!-- Account -->
+            <a href="account.html" aria-label="Account">
+                <i class="far fa-user"></i>
+            </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+        </div>
 
-                <li>
-                    <a href="#products">Shop</a>
-                </li>
+    </nav>
 
-                <li>
-                    <a href="#categories">Categories</a>
-                </li>
-
-                <li>
-                    <a href="#products">Flash Sale</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-
-            <!-- ICONS -->
-            <div class="icons">
-
-                <a href="#" aria-label="Wishlist">
-                    <i class="far fa-heart"></i>
-                </a>
-
-                <a href="cart.html" aria-label="Shopping Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <a href="#" aria-label="Account">
-                    <i class="far fa-user"></i>
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>
-
+</header>
+    
 
 
     <!-- =========================
