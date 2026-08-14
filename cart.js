@@ -503,44 +503,50 @@ document.addEventListener("DOMContentLoaded", function () {
             "cart-item";
 
 
-        itemElement.innerHTML = `
+      itemElement.innerHTML = `
+    <div class="product-info">
 
-            <div class="product-info">
+        <h3>${item.name}</h3>
 
-                <h3>
-                    ${item.name}
-                </h3>
+        <p>
+            Price: UGX ${price.toLocaleString()}
+        </p>
 
-                <p>
-                    Price:
-                    UGX ${price.toLocaleString()}
-                </p>
-
-                <p>
-                    Quantity:
-                    ${quantity}
-                </p>
-
-            </div>
-
-
-            <div class="item-total">
-
-                Subtotal:
-                UGX ${itemTotal.toLocaleString()}
-
-            </div>
-
+        <div class="quantity">
 
             <button
-                class="remove"
+                class="quantity-btn decrease"
                 data-index="${index}">
-
-                Remove
-
+                −
             </button>
 
-        `;
+            <span class="quantity-number">
+                ${quantity}
+            </span>
+
+            <button
+                class="quantity-btn increase"
+                data-index="${index}">
+                +
+            </button>
+
+        </div>
+
+        <p class="item-subtotal">
+            Subtotal:
+            <strong>
+                UGX ${itemTotal.toLocaleString()}
+            </strong>
+        </p>
+
+        <button
+            class="remove"
+            data-index="${index}">
+            Remove
+        </button>
+
+    </div>
+`;
 
 
         cartContainer.appendChild(
