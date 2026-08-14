@@ -29,25 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 existingProduct.quantity =
                     Number(existingProduct.quantity) + 1;
 
-            }<button 
-                        class="quantity-btn decrease"
-                        data-index="${index}">
-                        −
-                    </button>
+            } else {
 
-                    <span class="quantity">
-                        ${product.quantity}
-                    </span>
-
-                    <button 
-                        class="quantity-btn increase"
-                        data-index="${index}">
-                        +
-                    </button>
-
-                </div>
-
-                
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
                 });
 
             }
