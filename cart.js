@@ -1,64 +1,35 @@
-// ==========================================
-// PRINCE ONLINE SHOP - CART.JS
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Get cart from browser storage
-    let cart = JSON.parse(localStorage.getItem("princeCart")) || [];
+    // =====================================
+    // ADD TO CART
+    // =====================================
 
-    // Find the cart container
-    const cartContainer = document.querySelector("#cart-items");
+    const addButtons = document.querySelectorAll(".add-to-cart");
 
-    // Find subtotal and total elements
-    const subtotalElement = document.querySelector("#cart-subtotal");
-    const totalElement = document.querySelector("#cart-total");
+    addButtons.forEach(function (button) {
 
-    // Display cart
-    function displayCart() {
+        button.addEventListener("click", function () {
 
-        if (!cartContainer) {
-            console.error("Cart container #cart-items was not found.");
-            return;
-        }
+            const name = button.dataset.name;
+            const price = Number(button.dataset.price);
 
-        // Empty cart
-        if (cart.length === 0) {
+            if (!name || !price) {
+                alert("Product information is missing.");
+                return;
+            }
 
-            cartContainer.innerHTML = `
-                <div class="empty-cart">
-                    <h2>Your cart is empty</h2>
-                    <p>Add some products to your cart.</p>
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-                    <a href="index.html" class="continue-shopping">
-                        Continue Shopping
-                    </a>
-                </div>
-            `;
+            const existingProduct = cart.find(
+                item => item.name === name
+            );
 
-            updateTotals();
-            return;
-        }
+            if (existingProduct) {
 
-        // Clear previous cart
-        cartContainer.innerHTML = "";
+                existingProduct.quantity =
+                    Number(existingProduct.quantity) + 1;
 
-        // Display every product
-        cart.forEach(function (product, index) {
-
-            const item = document.createElement("div");
-
-            item.className = "cart-item";
-
-            item.innerHTML = `
-                <div class="cart-product">
-                    <h3>${product.name}</h3>
-                    <p>Price: UGX ${Number(product.price).toLocaleString()}</p>
-                </div>
-
-                <div class="cart-quantity">
-
-                    <button 
+            }<button 
                         class="quantity-btn decrease"
                         data-index="${index}">
                         −
@@ -76,120 +47,183 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </div>
 
-                <div class="cart-price">
-                    UGX ${(Number(product.price) * product.quantity).toLocaleString()}
-                </div>
+                
+                });
 
-                <button 
-                    class="remove-btn"
-                    data-index="${index}">
-                    Remove
-                </button>
-            `;
+            }
 
-            cartContainer.appendChild(item);
-        });
-
-        updateTotals();
-    }
-
-
-    // ==========================================
-    // UPDATE TOTALS
-    // ==========================================
-
-    function updateTotals() {
-
-        let subtotal = 0;
-
-        cart.forEach(function (product) {
-
-            subtotal += Number(product.price) * product.quantity;
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
 
         });
 
-        if (subtotalElement) {
-            subtotalElement.textContent =
-                "UGX " + subtotal.toLocaleString();
-        }
+    });
 
-        if (totalElement) {
-            totalElement.textContent =
-                "UGX " + subtotal.toLocaleString();
-        }
+
+    // =====================================
+    // DISPLAY CART
+    // =====================================
+
+    const cartItems =
+        document.getElementById("cart-items");
+
+    const cartSubtotal =
+        document.getElementById("cart-subtotal");
+
+    const cartTotal =
+        document.getElementById("cart-total");
+
+
+    // We are on index.html, so stop here
+    // after setting up Add To Cart buttons.
+    if (!cartItems) {
+        return;
     }
 
 
-    // ==========================================
-    // CART BUTTONS
-    // ==========================================
-
-    if (cartContainer) {
-
-        cartContainer.addEventListener("click", function (event) {
-
-            const index = event.target.dataset.index;
-
-            // Increase quantity
-            if (event.target.classList.contains("increase")) {
-
-                cart[index].quantity += 1;
-
-                saveCart();
-
-                displayCart();
-            }
+    // Get saved cart
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
 
-            // Decrease quantity
-            if (event.target.classList.contains("decrease")) {
+    // =====================================
+    // EMPTY CART
+    // =====================================
 
-                cart[index].quantity -= 1;
+    if (cart.length === 0) {
 
-                // Remove product if quantity becomes zero
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
+        cartItems.innerHTML = `
+            <div class="empty-cart">
 
-                saveCart();
+                <h3>Your cart is empty</h3>
 
-                displayCart();
-            }
+                <p>
+                    Please add a product before checking out.
+                </p>
+
+                <a href="index.html" class="shop-button">
+                    Continue Shopping
+                </a>
+
+            </div>
+        `;
+
+        cartSubtotal.textContent = "UGX 0";
+        cartTotal.textContent = "UGX 0";
+
+        return;
+    }
 
 
-            // Remove product
-            if (event.target.classList.contains("remove-btn")) {
+    // =====================================
+    // DISPLAY PRODUCTS
+    // =====================================
 
-                cart.splice(index, 1);
+    let total = 0;
 
-                saveCart();
+    cartItems.innerHTML = "";
 
-                displayCart();
-            }
+
+    cart.forEach(function (item, index) {
+
+        const price = Number(item.price);
+        const quantity = Number(item.quantity);
+
+        const itemTotal =
+            price * quantity;
+
+        total += itemTotal;
+
+
+        const product = document.createElement("div");
+
+        product.className = "cart-item";
+
+
+        product.innerHTML = `
+
+            <div class="product-info">
+
+                <h3>${item.name}</h3>
+
+                <p>
+                    Price:
+                    UGX ${price.toLocaleString()}
+                </p>
+
+                <p>
+                    Quantity:
+                    ${quantity}
+                </p>
+
+            </div>
+
+
+            <div class="item-total">
+
+                UGX ${itemTotal.toLocaleString()}
+
+            </div>
+
+
+            <button
+                class="remove"
+                data-index="${index}">
+
+                Remove
+
+            </button>
+
+        `;
+
+
+        cartItems.appendChild(product);
+
+    });
+
+
+    // =====================================
+    // UPDATE TOTAL
+    // =====================================
+
+    cartSubtotal.textContent =
+        "UGX " + total.toLocaleString();
+
+    cartTotal.textContent =
+        "UGX " + total.toLocaleString();
+
+
+    // =====================================
+    // REMOVE PRODUCT
+    // =====================================
+
+    const removeButtons =
+        document.querySelectorAll(".remove");
+
+
+    removeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const index =
+                Number(button.dataset.index);
+
+            let cart =
+                JSON.parse(localStorage.getItem("cart")) || [];
+
+            cart.splice(index, 1);
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            location.reload();
 
         });
 
-    }
-
-
-    // ==========================================
-    // SAVE CART
-    // ==========================================
-
-    function saveCart() {
-
-        localStorage.setItem(
-            "princeCart",
-            JSON.stringify(cart)
-        );
-
-    }
-
-
-    // ==========================================
-    // INITIAL DISPLAY
-    // ==========================================
-
-    displayCart();
+    });
 
 });
