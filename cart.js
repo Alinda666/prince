@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!name || isNaN(price)) {
                 alert("Product information is missing.");
                 return;
-            }
-
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
             const existingProduct = cart.find(function (item) {
                 return item.name === name;
