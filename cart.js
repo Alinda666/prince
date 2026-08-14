@@ -44,12 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 JSON.stringify(cart)
             );
 
-            alert(
-                name +
-                " added to cart!\n\nPrice: UGX " +
-                price.toLocaleString()
-            );
-
         });
 
     });
