@@ -459,3 +459,359 @@ margin-left:0;
 .whatsapp-button:hover {
     transform: scale(1.1);
 }
+
+/* ==========================================
+   PRINCE ONLINE SHOP - HEADER
+========================================== */
+
+.header {
+    width: 100%;
+    background: #ffffff;
+    position: relative;
+    z-index: 1000;
+}
+
+/* TOP BAR */
+
+.top-bar {
+    width: 100%;
+    background: #ff6600;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px 15px;
+}
+
+.top-bar p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 12px 30px;
+
+    background: #ffffff;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 145px;
+    height: 65px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ==========================================
+   SEARCH BOX
+========================================== */
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+
+    max-width: 500px;
+
+    height: 45px;
+
+    border: 2px solid #eeeeee;
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: #f8f8f8;
+}
+
+.search-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 18px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+}
+
+.search-box button {
+    width: 55px;
+    height: 100%;
+
+    border: none;
+
+    background: #ff6600;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box button:hover {
+    background: #e65c00;
+}
+
+
+/* ==========================================
+   NAVIGATION LINKS
+========================================== */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    flex-shrink: 0;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #222222;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6600;
+}
+
+
+/* ==========================================
+   HEADER ICONS
+========================================== */
+
+.icons {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-shrink: 0;
+}
+
+.icons a {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #222222;
+
+    text-decoration: none;
+
+    font-size: 19px;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.icons a:hover {
+    color: #ff6600;
+    background: #fff1e8;
+}
+
+
+/* ==========================================
+   CART NUMBER
+========================================== */
+
+.cart-icon {
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+
+    top: -3px;
+    right: -3px;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #ff6600;
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        gap: 15px;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        width: 120px;
+        height: 55px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .search-box {
+        max-width: 350px;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        padding: 12px 15px;
+    }
+
+    .logo img {
+        width: 125px;
+        height: 55px;
+    }
+
+    .icons {
+        gap: 8px;
+    }
+
+    .icons a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .search-box {
+        order: 3;
+
+        width: 100%;
+        max-width: none;
+
+        flex-basis: 100%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 480px) {
+
+    .top-bar p {
+        font-size: 11px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 110px;
+        height: 50px;
+    }
+
+    .icons {
+        gap: 4px;
+    }
+
+    .icons a {
+        font-size: 17px;
+    }
+
+    .search-box {
+        height: 42px;
+    }
+
+}
