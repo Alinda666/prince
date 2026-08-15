@@ -1,242 +1,83 @@
-// ==========================================
-// PRINCE ONLINE SHOP - MAIN.JS
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ==========================================
-    // UPDATE CART COUNT
-    // ==========================================
+    const categoryCards = document.querySelectorAll(".category-card");
+    const productCards = document.querySelectorAll(".product-card");
 
-    function updateCartCount() {
+    categoryCards.forEach(function (category) {
 
-        const cartCount = document.getElementById("cart-count");
+        category.addEventListener("click", function () {
 
-        if (!cartCount) return;
+            const categoryName = category.textContent
+                .trim()
+                .toLowerCase()
+                .replace(/[^\w\s]/gi, "")
+                .trim();
 
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let foundProducts = 0;
 
-        let totalQuantity = 0;
+            productCards.forEach(function (product) {
 
-        cart.forEach(function (item) {
-            totalQuantity += Number(item.quantity) || 0;
-        });
+                const productCategory =
+                    product.dataset.category?.toLowerCase();
 
-        cartCount.textContent = totalQuantity;
-    }
+                if (productCategory === categoryName) {
 
+                    product.style.display = "block";
+                    foundProducts++;
 
-    // Run when page loads
-    updateCartCount();
+                } else {
 
-
-    // ==========================================
-    // UPDATE CART COUNT WHEN STORAGE CHANGES
-    // ==========================================
-
-    window.addEventListener("storage", function () {
-        updateCartCount();
-    });
-
-
-    // ==========================================
-    // SEARCH BUTTON
-    // ==========================================
-
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-button");
-
-    function performSearch() {
-
-        if (!searchInput) return;
-
-        const searchText =
-            searchInput.value.trim().toLowerCase();
-
-        if (searchText === "") {
-            alert("Please enter a product name.");
-            return;
-        }
-
-        // Find product cards
-        const products =
-            document.querySelectorAll(".product-card");
-
-        let found = false;
-
-        products.forEach(function (product) {
-
-            const productName =
-                product.querySelector("h3");
-
-            if (!productName) return;
-
-            const name =
-                productName.textContent.toLowerCase();
-
-            if (name.includes(searchText)) {
-
-                product.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-                product.style.outline =
-                    "3px solid #ff6600";
-
-                setTimeout(function () {
-
-                    product.style.outline = "";
-
-                }, 2500);
-
-                found = true;
-            }
-
-        });
-
-        if (!found) {
-
-            alert(
-                'No product found for "' +
-                searchText +
-                '"'
-            );
-
-        }
-    }
-
-
-    // Search button
-    if (searchButton) {
-
-        searchButton.addEventListener(
-            "click",
-            performSearch
-        );
-
-    }
-
-
-    // Search using Enter key
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (event.key === "Enter") {
-
-                    event.preventDefault();
-
-                    performSearch();
-                }
-
-            }
-        );
-
-    }
-
-
-    // ==========================================
-    // SMOOTH SCROLLING
-    // ==========================================
-
-    const anchorLinks =
-        document.querySelectorAll('a[href^="#"]');
-
-    anchorLinks.forEach(function (link) {
-
-        link.addEventListener("click", function (event) {
-
-            const targetId =
-                link.getAttribute("href");
-
-            if (
-                targetId &&
-                targetId !== "#"
-            ) {
-
-                const target =
-                    document.querySelector(targetId);
-
-                if (target) {
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
+                    product.style.display = "none";
 
                 }
 
-            }
+            });
 
-        });
-
-    });
-
-
-    // ==========================================
-    // SHOP NOW BUTTON
-    // ==========================================
-
-    const shopButtons =
-        document.querySelectorAll(".btn");
-
-    shopButtons.forEach(function (button) {
-
-        button.addEventListener("click", function (event) {
-
-            const products =
+            // Scroll to products
+            const productsSection =
                 document.querySelector(".products");
 
-            if (products) {
-
-                event.preventDefault();
-
-                products.scrollIntoView({
-                    behavior: "smooth"
+            if (productsSection) {
+                productsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
                 });
+            }
+
+            // No products message
+            let message =
+                document.getElementById("no-products-message");
+
+            if (!message) {
+
+                message = document.createElement("div");
+
+                message.id = "no-products-message";
+
+                message.style.textAlign = "center";
+                message.style.padding = "40px";
+                message.style.fontSize = "22px";
+                message.style.fontWeight = "600";
+                message.style.color = "#555";
+
+                productsSection.appendChild(message);
+            }
+
+            if (foundProducts === 0) {
+
+                message.textContent =
+                    `No products found in "${categoryName}".`;
+
+                message.style.display = "block";
+
+            } else {
+
+                message.style.display = "none";
 
             }
 
         });
 
     });
-
-
-    // ==========================================
-    // CART COUNT UPDATE AFTER CLICKING
-    // ==========================================
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                event.target.classList.contains(
-                    "add-to-cart"
-                )
-            ) {
-
-                // Give cart.js time to save the product
-                setTimeout(function () {
-                    updateCartCount();
-                }, 100);
-
-            }
-
-        }
-    );
-
-
-    // ==========================================
-    // WELCOME MESSAGE
-    // ==========================================
-
-    console.log(
-        "PRINCE ONLINE SHOP loaded successfully."
-    );
 
 });
