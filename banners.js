@@ -1,37 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const bannerContainer = document.querySelector(".banner-container");
+    const bannerTrack = document.querySelector(".banner-track");
+    const banners = document.querySelectorAll(".promo-banner");
 
-    if (!bannerContainer) {
-        console.log("Banner container not found.");
-        return;
-    }
-
-    let banners = bannerContainer.querySelectorAll(".banner");
-
-    if (banners.length <= 1) {
+    if (!bannerTrack || banners.length === 0) {
+        console.log("Promotional banners not found.");
         return;
     }
 
     let currentBanner = 0;
     let autoSlide;
 
-    // Show selected banner
+    // ==============================
+    // SHOW BANNER
+    // ==============================
+
     function showBanner(index) {
 
-        banners.forEach(function (banner, i) {
+        const bannerWidth = bannerTrack.clientWidth;
 
-            if (i === index) {
-                banner.classList.add("active");
-            } else {
-                banner.classList.remove("active");
-            }
-
+        bannerTrack.scrollTo({
+            left: index * bannerWidth,
+            behavior: "smooth"
         });
 
+        currentBanner = index;
     }
 
-    // Move to next banner
+
+    // ==============================
+    // NEXT BANNER
+    // ==============================
+
     function nextBanner() {
 
         currentBanner++;
@@ -43,95 +43,170 @@ document.addEventListener("DOMContentLoaded", function () {
         showBanner(currentBanner);
     }
 
-    // Start automatic changing
+
+    // ==============================
+    // START AUTOMATIC SLIDE
+    // ==============================
+
     function startAutoSlide() {
 
         clearInterval(autoSlide);
 
         autoSlide = setInterval(function () {
+
             nextBanner();
+
         }, 4000);
 
     }
 
-    // Stop automatic changing
+
+    // ==============================
+    // STOP AUTOMATIC SLIDE
+    // ==============================
+
     function stopAutoSlide() {
 
         clearInterval(autoSlide);
 
     }
 
-    // Start
-    showBanner(currentBanner);
+
+    // ==============================
+    // PAUSE WHEN HOVERING
+    // ==============================
+
+    bannerTrack.addEventListener("mouseenter", function () {
+
+        stopAutoSlide();
+
+    });
+
+
+    // ==============================
+    // RESUME AFTER HOVER
+    // ==============================
+
+    bannerTrack.addEventListener("mouseleave", function () {
+
+        startAutoSlide();
+
+    });
+
+
+    // ==============================
+    // START
+    // ==============================
+
     startAutoSlide();
 
-    // Pause when mouse is over banners
-    bannerContainer.addEventListener("mouseenter", function () {
-        stopAutoSlide();
-    });
 
-    // Continue when mouse leaves
-    bannerContainer.addEventListener("mouseleave", function () {
-        startAutoSlide();
-    });
+    // ==============================
+    // MANUAL HORIZONTAL SCROLL
+    // ==============================
 
-
-    // ==========================================
-    // MANUAL HORIZONTAL SCROLLING
-    // ==========================================
-
-    let isDown = false;
+    let isDragging = false;
     let startX;
-    let scrollLeft;
+    let startScrollLeft;
 
-    bannerContainer.addEventListener("mousedown", function (e) {
 
-        isDown = true;
+    bannerTrack.addEventListener("mousedown", function (e) {
 
-        bannerContainer.classList.add("dragging");
+        isDragging = true;
 
-        startX = e.pageX - bannerContainer.offsetLeft;
+        bannerTrack.classList.add("dragging");
 
-        scrollLeft = bannerContainer.scrollLeft;
+        startX = e.pageX - bannerTrack.offsetLeft;
+
+        startScrollLeft = bannerTrack.scrollLeft;
 
         stopAutoSlide();
 
     });
 
-    bannerContainer.addEventListener("mouseleave", function () {
 
-        isDown = false;
+    bannerTrack.addEventListener("mousemove", function (e) {
 
-        bannerContainer.classList.remove("dragging");
-
-        startAutoSlide();
-
-    });
-
-    bannerContainer.addEventListener("mouseup", function () {
-
-        isDown = false;
-
-        bannerContainer.classList.remove("dragging");
-
-        startAutoSlide();
-
-    });
-
-    bannerContainer.addEventListener("mousemove", function (e) {
-
-        if (!isDown) {
-            return;
-        }
+        if (!isDragging) return;
 
         e.preventDefault();
 
-        const x = e.pageX - bannerContainer.offsetLeft;
+        const x = e.pageX - bannerTrack.offsetLeft;
 
-        const walk = (x - startX) * 1.5;
+        const walk = x - startX;
 
-        bannerContainer.scrollLeft =
-            scrollLeft - walk;
+        bannerTrack.scrollLeft =
+            startScrollLeft - walk;
+
+    });
+
+
+    bannerTrack.addEventListener("mouseup", function () {
+
+        isDragging = false;
+
+        bannerTrack.classList.remove("dragging");
+
+        startAutoSlide();
+
+    });
+
+
+    bannerTrack.addEventListener("mouseleave", function () {
+
+        if (isDragging) {
+
+            isDragging = false;
+
+            bannerTrack.classList.remove("dragging");
+
+            startAutoSlide();
+
+        }
+
+    });
+
+
+    // ==============================
+    // TOUCH SWIPE
+    // ==============================
+
+    let touchStartX = 0;
+
+    bannerTrack.addEventListener("touchstart", function (e) {
+
+        touchStartX = e.touches[0].clientX;
+
+        stopAutoSlide();
+
+    });
+
+
+    bannerTrack.addEventListener("touchend", function (e) {
+
+        const touchEndX = e.changedTouches[0].clientX;
+
+        const difference = touchStartX - touchEndX;
+
+        if (difference > 50) {
+
+            nextBanner();
+
+        }
+
+        else if (difference < -50) {
+
+            currentBanner--;
+
+            if (currentBanner < 0) {
+                currentBanner = banners.length - 1;
+            }
+
+            showBanner(currentBanner);
+
+        }
+
+        startAutoSlide();
 
     });
 
