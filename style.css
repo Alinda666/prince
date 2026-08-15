@@ -1005,3 +1005,52 @@ margin-left:0;
     }
 
 }
+
+
+.promotional-banners {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.banner-container {
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    cursor: grab;
+
+    scrollbar-width: none;
+}
+
+.banner-container::-webkit-scrollbar {
+    display: none;
+}
+
+.banner-container.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.banner {
+    flex: 0 0 100%;
+    min-width: 100%;
+    position: relative;
+
+    transition: opacity 0.5s ease;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    border-radius: 15px;
+
+    user-select: none;
+    pointer-events: none;
+}
