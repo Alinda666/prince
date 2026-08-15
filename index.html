@@ -211,13 +211,13 @@
          CATEGORIES
     ========================== -->
     
-<section class="categories">
+<section class="categories" id="categories">
 
     <h2>Shop By Category</h2>
 
     <div class="category-grid">
 
-        <button class="category-card active" data-category="all">
+        <button class="category-card" data-category="shoes">
             👟 Shoes
         </button>
 
@@ -238,7 +238,7 @@
         </button>
 
         <button class="category-card" data-category="furniture">
-            🛋️ Furniture
+            🛋 Furniture
         </button>
 
         <button class="category-card" data-category="electronics">
@@ -257,328 +257,189 @@
     <!-- =========================
          PRODUCTS
     ========================== -->
+<section class="products" id="products">
 
-    <section class="products" id="products">
+    <h2>Featured Products</h2>
 
-        <h2>Flash Deals</h2>
+    <div class="product-grid">
 
+        <!-- NIKE -->
+        <div class="product-card" data-category="shoes">
 
-        <div class="product-grid">
+            <span class="discount">-50%</span>
 
+            <img src="shoe1.jpg" alt="Nike Air Max">
 
-            <!-- =====================
-                 PRODUCT 1 - NIKE
-            ====================== -->
+            <h3>Nike Air Max</h3>
 
-            <div class="product-card">
-
-      <div class="product-card" data-category="shoes">
-
-                <span class="discount">
-                    -50%
-                </span>
-
-                <img
-                    src="shoe1.jpg"
-                    alt="Nike Air Max">
-
-                <h3>
-                    Nike Air Max
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 70,000
-                    </span>
-
-                    <span class="new">
-                        UGX 60,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Nike Air Max"
-                    data-price="60000">
-
-                    Add To Cart
-                    
-                </button>
-
+            <div class="price">
+                <span class="old">UGX 70,000</span>
+                <span class="new">UGX 60,000</span>
             </div>
 
-
-
-            <!-- =====================
-                 PRODUCT 2 - IPHONE
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -40%
-                </span>
-
-                <img
-                    src="iphone.jpg"
-                    alt="iPhone 16">
-
-                <h3>
-                    iPhone 16
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 1,200,000
-                    </span>
-
-                    <span class="new">
-                        UGX 1,100,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="iPhone 16"
-                    data-price="1100000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =====================
-                 PRODUCT 3 - LAPTOP
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -40%
-                </span>
-
-                <img
-                    src="laptop.jpg"
-                    alt="Gaming Laptop">
-
-                <h3>
-                    Gaming Laptop
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 1,400,000
-                    </span>
-
-                    <span class="new">
-                        UGX 840,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Gaming Laptop"
-                    data-price="840000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =====================
-                 PRODUCT 4 - WATCH
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -60%
-                </span>
-
-                <img
-                    src="watch.jpg"
-                    alt="Luxury Watch">
-
-                <h3>
-                    Luxury Watch
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 250,000
-                    </span>
-
-                    <span class="new">
-                        UGX 99,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Luxury Watch"
-                    data-price="99000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =====================
-                 PRODUCT 5 - PHONE
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -35%
-                </span>
-
-                <img
-                    src="phone.jpg"
-                    alt="Smart Phone">
-
-                <h3>
-                    Smart Phone
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 120,000
-                    </span>
-
-                    <span class="new">
-                        UGX 78,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Smart Phone"
-                    data-price="78000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =====================
-                 PRODUCT 6 - MOTORCYCLE
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -40%
-                </span>
-
-                <img
-                    src="motocyle.jpg"
-                    alt="Motorcycle">
-
-                <h3>
-                    Motorcycle
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 2,000,000
-                    </span>
-
-                    <span class="new">
-                        UGX 1,500,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Motorcycle"
-                    data-price="1500000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =====================
-                 PRODUCT 7 - CERAMIC TILES
-            ====================== -->
-
-            <div class="product-card">
-
-                <span class="discount">
-                    -40%
-                </span>
-
-                <img
-                    src="kitchen ceramic tiles.jpg"
-                    alt="Ceramic Tiles">
-
-                <h3>
-                    Ceramic Tiles
-                </h3>
-
-                <div class="price">
-
-                    <span class="old">
-                        UGX 45,000
-                    </span>
-
-                    <span class="new">
-                        UGX 42,000
-                    </span>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="add-to-cart"
-                    data-name="Ceramic Tiles"
-                    data-price="42000">
-
-                    Add To Cart
-
-                </button>
-
-            </div>
-
+            <button
+                class="add-to-cart"
+                data-name="Nike Air Max"
+                data-price="60000">
+                Add To Cart
+            </button>
 
         </div>
 
-    </section>
 
+        <!-- IPHONE -->
+        <div class="product-card" data-category="phones">
+
+            <span class="discount">-40%</span>
+
+            <img src="iphone.jpg" alt="iPhone 16">
+
+            <h3>iPhone 16</h3>
+
+            <div class="price">
+                <span class="old">UGX 1,200,000</span>
+                <span class="new">UGX 1,100,000</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="iPhone 16"
+                data-price="1100000">
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <!-- LAPTOP -->
+        <div class="product-card" data-category="computers">
+
+            <span class="discount">-40%</span>
+
+            <img src="laptop.jpg" alt="Gaming Laptop">
+
+            <h3>Gaming Laptop</h3>
+
+            <div class="price">
+                <span class="old">UGX 5,000,000</span>
+                <span class="new">UGX 3,000,000</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Gaming Laptop"
+                data-price="3000000">
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <!-- WATCH -->
+        <div class="product-card" data-category="watches">
+
+            <span class="discount">-60%</span>
+
+            <img src="watch.jpg" alt="Luxury Watch">
+
+            <h3>Luxury Watch</h3>
+
+            <div class="price">
+                <span class="old">UGX 900,000</span>
+                <span class="new">UGX 360,000</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Luxury Watch"
+                data-price="360000">
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <!-- PHONE -->
+        <div class="product-card" data-category="phones">
+
+            <span class="discount">-35%</span>
+
+            <img src="phone.jpg" alt="Smart Phone">
+
+            <h3>Smart Phone</h3>
+
+            <div class="price">
+                <span class="old">UGX 12,000</span>
+                <span class="new">UGX 7,800</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Smart Phone"
+                data-price="7800">
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <!-- MOTORCYCLE -->
+        <div class="product-card" data-category="other">
+
+            <span class="discount">-40%</span>
+
+            <img src="motocyle.jpg" alt="Motorcycle">
+
+            <h3>Motorcycle</h3>
+
+            <div class="price">
+                <span class="old">UGX 2,000,000</span>
+                <span class="new">UGX 1,500,000</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Motorcycle"
+                data-price="1500000">
+                Add To Cart
+            </button>
+
+        </div>
+
+
+        <!-- CERAMIC TILES -->
+        <div class="product-card" data-category="home">
+
+            <span class="discount">-40%</span>
+
+            <img src="kitchen ceramic tiles.jpg"
+                 alt="Ceramic Tiles">
+
+            <h3>Ceramic Tiles</h3>
+
+            <div class="price">
+                <span class="old">UGX 45,000</span>
+                <span class="new">UGX 42,000</span>
+            </div>
+
+            <button
+                class="add-to-cart"
+                data-name="Ceramic Tiles"
+                data-price="42000">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- NO PRODUCTS MESSAGE -->
+    <div id="no-products" class="no-products">
+        <h3>No products found</h3>
+        <p>There are currently no products in this category.</p>
+    </div>
+
+</section>
 
 
     <!-- =========================
