@@ -1,78 +1,40 @@
-// ==========================================
-// PRINCE ONLINE SHOP - SEARCH.JS
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const searchInput =
-        document.getElementById("search-input");
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const productCards = document.querySelectorAll(".product-card");
 
-    const searchButton =
-        document.getElementById("search-button");
-
-    // Get all product cards on the current page
-    const productCards =
-        document.querySelectorAll(".product-card");
-
-
-    // ==========================================
-    // SEARCH FUNCTION
-    // ==========================================
+    if (!searchInput || !searchButton) {
+        console.error("Search input or search button not found.");
+        return;
+    }
 
     function searchProducts() {
 
-        if (!searchInput) {
-            return;
-        }
+        const searchText = searchInput.value
+            .trim()
+            .toLowerCase();
 
-        const searchText =
-            searchInput.value.trim().toLowerCase();
-
-
-        // If search box is empty
-        if (searchText === "") {
-
-            productCards.forEach(function (product) {
-                product.style.display = "";
-            });
-
-            return;
-        }
-
-
-        let foundProducts = 0;
-
+        let found = 0;
 
         productCards.forEach(function (product) {
 
-            // Find product name
-            const title =
-                product.querySelector("h3");
-
-            // Find product description if available
-            const description =
-                product.querySelector("p");
-
             const productName =
-                title
-                    ? title.textContent.toLowerCase()
-                    : "";
+                product.querySelector("h3")?.textContent
+                .toLowerCase() || "";
 
-            const productDescription =
-                description
-                    ? description.textContent.toLowerCase()
-                    : "";
+            const productCategory =
+                product.dataset.category?.toLowerCase() || "";
 
-
-            // Check product name or description
             if (
+                searchText === "" ||
                 productName.includes(searchText) ||
-                productDescription.includes(searchText)
+                productCategory.includes(searchText)
             ) {
 
                 product.style.display = "";
 
-                foundProducts++;
+                found++;
 
             } else {
 
@@ -82,213 +44,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
+        // Remove old message
+        const oldMessage =
+            document.getElementById("search-message");
 
-        // ==========================================
-        // NO RESULTS MESSAGE
-        // ==========================================
+        if (oldMessage) {
+            oldMessage.remove();
+        }
 
-        let noResults =
-            document.getElementById("no-search-results");
+        // Show message if nothing found
+        if (found === 0 && searchText !== "") {
 
+            const productsSection =
+                document.querySelector(".products");
 
-        if (foundProducts === 0) {
+            if (productsSection) {
 
-            if (!noResults) {
-
-                noResults =
+                const message =
                     document.createElement("div");
 
-                noResults.id =
-                    "no-search-results";
+                message.id = "search-message";
 
-                noResults.innerHTML = `
-                    <div style="
-                        text-align:center;
-                        padding:50px 20px;
-                        background:white;
-                        border-radius:12px;
-                        margin-top:20px;
-                    ">
+                message.textContent =
+                    `No products found for "${searchText}"`;
 
-                        <h2>No products found</h2>
+                message.style.textAlign = "center";
+                message.style.padding = "40px";
+                message.style.fontSize = "22px";
+                message.style.fontWeight = "600";
 
-                        <p>
-                            We couldn't find a product
-                            matching "<strong>
-                            ${searchInput.value}
-                            </strong>".
-                        </p>
-
-                        <button
-                            id="clear-search"
-                            style="
-                                margin-top:15px;
-                                padding:12px 22px;
-                                border:none;
-                                border-radius:8px;
-                                background:#ff6600;
-                                color:white;
-                                cursor:pointer;
-                                font-weight:bold;
-                            "
-                        >
-                            Clear Search
-                        </button>
-
-                    </div>
-                `;
-
-
-                // Put message after products
-                const productsSection =
-                    document.querySelector(".products");
-
-
-                if (productsSection) {
-
-                    productsSection.appendChild(
-                        noResults
-                    );
-
-                } else {
-
-                    document.body.appendChild(
-                        noResults
-                    );
-
-                }
-
-
-                // Clear button
-                const clearButton =
-                    document.getElementById(
-                        "clear-search"
-                    );
-
-
-                if (clearButton) {
-
-                    clearButton.addEventListener(
-                        "click",
-                        clearSearch
-                    );
-
-                }
-
+                productsSection.prepend(message);
             }
+        }
 
-        } else {
+        // Scroll to products
+        const productsSection =
+            document.querySelector(".products");
 
-            if (noResults) {
-                noResults.remove();
-            }
+        if (productsSection && searchText !== "") {
+
+            productsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
 
         }
 
     }
 
+    // Search button
+    searchButton.addEventListener(
+        "click",
+        searchProducts
+    );
 
-    // ==========================================
-    // CLEAR SEARCH
-    // ==========================================
+    // Press Enter to search
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
 
-    function clearSearch() {
+            if (event.key === "Enter") {
 
-        if (searchInput) {
-            searchInput.value = "";
-        }
+                event.preventDefault();
 
-
-        productCards.forEach(function (product) {
-
-            product.style.display = "";
-
-        });
-
-
-        const noResults =
-            document.getElementById(
-                "no-search-results"
-            );
-
-
-        if (noResults) {
-            noResults.remove();
-        }
-
-    }
-
-
-    // ==========================================
-    // SEARCH BUTTON
-    // ==========================================
-
-    if (searchButton) {
-
-        searchButton.addEventListener(
-            "click",
-            searchProducts
-        );
-
-    }
-
-
-    // ==========================================
-    // PRESS ENTER TO SEARCH
-    // ==========================================
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (event.key === "Enter") {
-
-                    event.preventDefault();
-
-                    searchProducts();
-
-                }
+                searchProducts();
 
             }
-        );
 
-    }
-
-
-    // ==========================================
-    // LIVE SEARCH
-    // ==========================================
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            function () {
-
-                // Only search while typing
-                // when at least 2 characters
-                if (
-                    searchInput.value.trim().length >= 2
-                ) {
-
-                    searchProducts();
-
-                }
-
-                // Restore products when cleared
-                if (
-                    searchInput.value.trim() === ""
-                ) {
-
-                    clearSearch();
-
-                }
-
-            }
-        );
-
-    }
+        }
+    );
 
 });
