@@ -25,6 +25,65 @@ body{
     padding:10px;
     font-size:14px;
     font-weight:600;
+
+   /* ==========================================
+   CATEGORY BUTTONS
+========================================== */
+
+.category-card {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Selected category */
+
+.category-card.active {
+    background: #ff6600;
+    color: white;
+    transform: translateY(-5px);
+}
+
+
+/* ==========================================
+   PRODUCTS SECTION
+========================================== */
+
+.products {
+    scroll-margin-top: 100px;
+}
+
+
+/* ==========================================
+   NO PRODUCTS MESSAGE
+========================================== */
+
+.no-products {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    margin: 30px auto;
+    max-width: 700px;
+    background: #f8f8f8;
+    border-radius: 15px;
+}
+
+.no-products h3 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    color: #222;
+}
+
+.no-products p {
+    margin: 0;
+    color: #777;
+    font-size: 16px;
+}
 }
 
 /* Navigation */
