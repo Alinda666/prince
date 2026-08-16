@@ -184,67 +184,82 @@
      HERO
 ========================== -->
 
-<section class="text">
+@media (max-width: 650px) {
 
-    <div class="hero-image">
+    .hero {
+        width: 100%;
+        padding: 30px 15px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
 
-        <h4>🔥 FLASH SALE</h4>
+    .hero-text {
+        width: 100%;
+        margin: 0;
+    }
 
-        <h1>
-            UP TO <span>80% OFF</span>
-        </h1>
+    .hero-text h4 {
+        font-size: 18px;
+        margin: 0 0 12px;
+    }
 
-        <p>
-            Discover amazing products at unbeatable prices.
-        </p>
+    .hero-text h1 {
+        font-size: 38px;
+        line-height: 1.1;
+        margin: 0;
+    }
 
-        <div class="buttons">
+    .hero-text p {
+        font-size: 17px;
+        line-height: 1.4;
+        margin: 15px auto;
+        max-width: 95%;
+    }
 
-            <a href="#products" class="btn">
-                Shop Now
-            </a>
+    .buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 20px 0 0;
+    }
 
-            <a href="#products" class="btn-outline">
-                Today's Deals
-            </a>
+    .buttons .btn,
+    .buttons .btn-outline {
+        width: 90%;
+        max-width: 480px;
+        min-width: 0;
+        padding: 15px 20px;
+        font-size: 17px;
+        box-sizing: border-box;
+    }
 
-        </div>
+    .hero-image {
+        width: 100%;
+        margin: 5px 0 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
 
-    </div>
-    
-
+    .hero-image img {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        object-fit: contain;
+    }
+}
     <div class="hero-image">
         <!-- =========================
      HERO
 ========================== -->
-
-<section class="hero">
-
-    <div class="hero-text">
-
-        <h4>🔥 FLASH SALE</h4>
-
-        <h1>
-            UP TO <span>80% OFF</span>
-        </h1>
-
-        <p>
-            Discover amazing products at unbeatable prices.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#products" class="btn">
-                Shop Now
-            </a>
-
-            <a href="#products" class="btn-outline">
-                Today's Deals
-            </a>
-
-        </div>
-
-    </div>
 
     <div class="hero-image">
 
