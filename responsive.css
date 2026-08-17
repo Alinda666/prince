@@ -559,787 +559,175 @@ button {
         font-size: 14px;
     }
 
+/* =========================================
+   MOBILE PRODUCT CARD FIX
+========================================= */
 
-    /* =====================================================
-       PRODUCTS
-    ===================================================== */
+.product-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
 
-    .products-section,
-    .featured-products,
-    #products {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+/* Product image */
+.product-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
 
-    .product-grid,
-    .products-grid {
+/* Product information */
+.product-info {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Product name */
+.product-card h3 {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 20px;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+/* Price container */
+.product-price {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+/* Old price */
+.old-price {
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+    max-width: 100%;
+}
+
+/* New price */
+.new-price {
+    display: block;
+    max-width: 100%;
+    color: #ff6600;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* Add to cart */
+.product-card button,
+.product-card .add-to-cart {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 35px;
+    font-size: 17px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .product-grid {
+        width: 100%;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .product-card {
-        border-radius: 12px;
+        gap: 10px;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .product-card img {
-        width: 100%;
-        height: 180px;
+        height: 190px;
         object-fit: cover;
     }
 
-    .product-card h3 {
-        font-size: 15px;
-        margin: 8px;
+    .product-info {
+        padding: 10px;
     }
 
-    .product-card .price {
-        font-size: 15px;
-        margin: 8px;
+    .product-card h3 {
+        font-size: 17px;
+    }
+
+    .old-price {
+        font-size: 13px;
+    }
+
+    .new-price {
+        font-size: 19px;
     }
 
     .product-card button,
-    .add-to-cart,
-    .buy-now {
-        width: calc(100% - 16px);
-        margin: 8px;
-        min-height: 42px;
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-
-
-    /* =====================================================
-       CATEGORIES
-    ===================================================== */
-
-    .categories,
-    .category-container,
-    .category-grid {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .category-card {
-        min-height: 120px;
-    }
-
-
-    /* =====================================================
-       GENERAL BUTTONS
-    ===================================================== */
-
-    button,
-    .shop-btn,
-    .add-to-cart,
-    .buy-now {
-        min-height: 44px;
+    .product-card .add-to-cart {
+        font-size: 15px;
+        padding: 12px 5px;
     }
 }
 
+   @media (max-width: 600px) {
 
-/* =========================================================
+    .product-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        display: block;
+    }
+
+}
+
+/* =========================================
    VERY SMALL PHONES
-   400px AND BELOW
-========================================================= */
+========================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 
-    .logo img {
-        max-width: 75px;
-    }
-
-
-    /* Banner */
-
-    .promo-banner img {
-        height: 260px;
-    }
-
-    .banner-content {
-        left: 15px;
-        right: 15px;
-        max-width: calc(100% - 30px);
-    }
-
-    .banner-content span {
-        font-size: 12px;
-    }
-
-    .banner-content h2 {
-        font-size: 26px;
-    }
-
-    .banner-content p {
-        font-size: 13px;
-    }
-
-    .banner-btn {
-        min-height: 40px;
-        padding: 8px 16px;
-        font-size: 13px;
-    }
-
-
-    /* Products */
-
-    .product-grid,
-    .products-grid {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+        padding: 8px;
     }
 
     .product-card img {
-        height: 150px;
+        height: 160px;
     }
 
     .product-card h3 {
-        font-size: 14px;
-    }
-
-    .product-card .price {
-        font-size: 14px;
-    }
-
-    .product-card button,
-    .add-to-cart,
-    .buy-now {
-        font-size: 12px;
-        min-height: 38px;
-    }
-
-
-    /* Categories */
-
-    .category-grid {
-        gap: 8px;
-    }
-}
-
-
-/* =========================================================
-   LANDSCAPE MOBILE
-========================================================= */
-
-@media (max-width: 768px) and (orientation: landscape) {
-
-    .promo-banner img {
-        height: 300px;
-    }
-
-    .banner-content h2 {
-        font-size: 30px;
-    }
-
-    .banner-content p {
-        font-size: 14px;
-    }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY / TOUCH
-========================================================= */
-
-@media (hover: none) and (pointer: coarse) {
-
-    button,
-    a,
-    .category-card,
-    .product-card {
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    button,
-    .banner-btn,
-    .add-to-cart,
-    .buy-now {
-        min-height: 44px;
-    }
-}
-
-@media (max-width: 650px) {
-
-    .hero {
-        width: 100%;
-        padding: 30px 15px 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .hero-text {
-        width: 100%;
-        margin: 0;
-    }
-
-    .hero-text h4 {
-        font-size: 18px;
-        margin: 0 0 12px;
-    }
-
-    .hero-text h1 {
-        font-size: 38px;
-        line-height: 1.1;
-        margin: 0;
-    }
-
-    .hero-text p {
-        font-size: 17px;
-        line-height: 1.4;
-        margin: 15px auto;
-        max-width: 95%;
-    }
-
-    .buttons {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin: 20px 0 0;
-    }
-
-    .buttons .btn,
-    .buttons .btn-outline {
-        width: 90%;
-        max-width: 480px;
-        min-width: 0;
-        padding: 15px 20px;
-        font-size: 17px;
-        box-sizing: border-box;
-    }
-
-    .hero-image {
-        width: 100%;
-        margin: 5px 0 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero-image img {
-        display: block;
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        object-fit: contain;
-    }
-}
-
-/* =========================================
-   PRODUCT GRID RESPONSIVE FIX
-========================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Products container */
-.products,
-.product-grid,
-#products {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Product grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-}
-
-/* Product card */
-.product-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-/* Product image */
-.product-card img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Product information */
-.product-info {
-    width: 100%;
-    min-width: 0;
-    padding: 15px;
-    text-align: center;
-}
-
-/* Product name */
-.product-card h3,
-.product-card h2 {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 22px;
-    line-height: 1.3;
-    overflow-wrap: break-word;
-}
-
-/* =========================================
-   PRICE FIX
-========================================= */
-
-.product-price,
-.price {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 12px 0 20px;
-}
-
-.old-price {
-    font-size: 18px;
-    color: #888;
-    text-decoration: line-through;
-}
-
-.new-price,
-.sale-price {
-    font-size: 26px;
-    font-weight: 700;
-    color: #ff6600;
-    white-space: normal;
-    overflow-wrap: anywhere;
-}
-
-/* =========================================
-   ADD TO CART BUTTON
-========================================= */
-
-.product-card .btn,
-.product-card button,
-.add-to-cart {
-    width: 100%;
-    max-width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 35px;
-    font-size: 18px;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1000px) {
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-    }
-
-    .products,
-    .product-grid,
-    #products {
-        padding: 15px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
-        font-size: 20px;
-    }
-
-    .new-price,
-    .sale-price {
-        font-size: 23px;
-    }
-
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .products,
-    .product-grid,
-    #products {
-        width: 100%;
-        padding: 10px;
-        margin: 0;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .product-card {
-        min-width: 0;
-        border-radius: 18px;
-    }
-
-    .product-info {
-        padding: 10px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
-        font-size: 17px;
-        margin: 8px 0;
-    }
-
-    .product-price,
-    .price {
-        gap: 5px;
-        margin: 8px 0 14px;
-    }
-
-    .old-price {
-        font-size: 14px;
-    }
-
-    .new-price,
-    .sale-price {
-        font-size: 19px;
-    }
-
-    .product-card .btn,
-    .product-card button,
-    .add-to-cart {
-        padding: 12px 8px;
-        font-size: 15px;
-    }
-
-}
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 380px) {
-
-    .product-grid {
-        gap: 8px;
-    }
-
-    .products,
-    .product-grid,
-    #products {
-        padding: 8px;
-    }
-
-    .product-info {
-        padding: 8px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
         font-size: 15px;
     }
 
     .old-price {
-        font-size: 12px;
+        font-size: 11px;
     }
 
-    .new-price,
-    .sale-price {
+    .new-price {
         font-size: 17px;
     }
 
-    .product-card .btn,
     .product-card button,
-    .add-to-cart {
-        font-size: 14px;
-        padding: 11px 5px;
+    .product-card .add-to-cart {
+        font-size: 13px;
+        padding: 11px 4px;
     }
-
 }
-
-/* =========================================
-   PRODUCT GRID RESPONSIVE FIX
-========================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Products container */
-.products,
-.product-grid,
-#products {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Product grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-}
-
-/* Product card */
-.product-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-/* Product image */
-.product-card img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Product information */
-.product-info {
-    width: 100%;
-    min-width: 0;
-    padding: 15px;
-    text-align: center;
-}
-
-/* Product name */
-.product-card h3,
-.product-card h2 {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 22px;
-    line-height: 1.3;
-    overflow-wrap: break-word;
-}
-
-/* =========================================
-   PRICE FIX
-========================================= */
-
-.product-price,
-.price {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 12px 0 20px;
-}
-
-.old-price {
-    font-size: 18px;
-    color: #888;
-    text-decoration: line-through;
-}
-
-.new-price,
-.sale-price {
-    font-size: 26px;
-    font-weight: 700;
-    color: #ff6600;
-    white-space: normal;
-    overflow-wrap: anywhere;
-}
-
-/* =========================================
-   ADD TO CART BUTTON
-========================================= */
-
-.product-card .btn,
-.product-card button,
-.add-to-cart {
-    width: 100%;
-    max-width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 35px;
-    font-size: 18px;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1000px) {
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-    }
-
-    .products,
-    .product-grid,
-    #products {
-        padding: 15px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
-        font-size: 20px;
-    }
-
-    .new-price,
-    .sale-price {
-        font-size: 23px;
-    }
-
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .products,
-    .product-grid,
-    #products {
-        width: 100%;
-        padding: 10px;
-        margin: 0;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .product-card {
-        min-width: 0;
-        border-radius: 18px;
-    }
-
-    .product-info {
-        padding: 10px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
-        font-size: 17px;
-        margin: 8px 0;
-    }
-
-    .product-price,
-    .price {
-        gap: 5px;
-        margin: 8px 0 14px;
-    }
-
-    .old-price {
-        font-size: 14px;
-    }
-
-    .new-price,
-    .sale-price {
-        font-size: 19px;
-    }
-
-    .product-card .btn,
-    .product-card button,
-    .add-to-cart {
-        padding: 12px 8px;
-        font-size: 15px;
-    }
-
-}
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 380px) {
-
-    .product-grid {
-        gap: 8px;
-    }
-
-    .products,
-    .product-grid,
-    #products {
-        padding: 8px;
-    }
-
-    .product-info {
-        padding: 8px;
-    }
-
-    .product-card h3,
-    .product-card h2 {
-        font-size: 15px;
-    }
-
-    .old-price {
-        font-size: 12px;
-    }
-
-    .new-price,
-    .sale-price {
-        font-size: 17px;
-    }
-
-    .product-card .btn,
-    .product-card button,
-    .add-to-cart {
-        font-size: 14px;
-        padding: 11px 5px;
-    }
-
-}
-
-/* PRODUCT CARD PRICE FIX */
-
-.product-card {
-    min-width: 0;
-    width: 100%;
-    overflow: hidden;
-}
-
-.product-price {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-}
-
-.new-price {
-    color: #ff6600;
-    font-weight: 700;
-    font-size: 24px;
-    overflow-wrap: anywhere;
-}
+    
