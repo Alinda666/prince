@@ -616,30 +616,54 @@ button {
 }
 
 /* =========================================
-   MOBILE - REDUCE SPACE ABOVE FEATURED PRODUCTS
-   ========================================= */
+   SHOP BY CATEGORY - HORIZONTAL MOBILE
+========================================= */
 
 @media (max-width: 768px) {
 
-    /* Reduce the space after the category section */
     .categories {
-        margin-bottom: 30px;
-        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        width: 100%;
+        padding: 10px 20px 25px;
+
+        scroll-behavior: smooth;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    /* Featured Products heading */
-    #products,
-    .featured-products {
-        margin-top: 0;
-        padding-top: 20px;
+    .categories::-webkit-scrollbar {
+        display: none;
     }
 
-    #products h2,
-    .featured-products h2 {
-        margin-top: 0;
-        margin-bottom: 30px;
-        font-size: 42px;
-        line-height: 1.1;
+    /* Each category card */
+    .category-card {
+        flex: 0 0 240px;
+        width: 240px;
+        min-width: 240px;
+        height: 150px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 30px;
+        box-sizing: border-box;
+    }
+
+    .category-card h3 {
+        font-size: 28px;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
     }
 
 }
+
