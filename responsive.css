@@ -742,3 +742,15 @@ button {
         display: block;
     }
 }
+
+.new-price {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
