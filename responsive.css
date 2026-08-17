@@ -619,7 +619,7 @@ button {
 ========================================= */
 
 .category-grid {
-    display: grid;
+    display: container;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     width: 100%;
