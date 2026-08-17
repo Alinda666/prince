@@ -1319,3 +1319,27 @@ body {
     }
 
 }
+
+/* PRODUCT CARD PRICE FIX */
+
+.product-card {
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-price {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.new-price {
+    color: #ff6600;
+    font-weight: 700;
+    font-size: 24px;
+    overflow-wrap: anywhere;
+}
