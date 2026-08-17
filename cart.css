@@ -412,3 +412,122 @@ header nav a:hover {
         bottom: 18px;
     }
 }
+
+/* ==========================================
+   FIX FEATURED PRODUCTS SECTION
+========================================== */
+
+.products {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Featured Products heading */
+.products > h2 {
+    display: block;
+    width: 100%;
+    margin: 0 0 30px;
+    text-align: center;
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+/* Product grid */
+.products-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .products {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 25px 8px !important;
+        box-sizing: border-box;
+    }
+
+    .products > h2 {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 0 25px !important;
+        text-align: center !important;
+        font-size: 38px !important;
+        line-height: 1.1 !important;
+    }
+
+    .products-grid {
+        display: grid !important;
+        width: 100% !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .product-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .product-card h3 {
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 12px 6px;
+        text-align: center;
+    }
+
+    .price {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .old {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .new {
+        font-size: 18px;
+        text-align: center;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .add-to-cart {
+        width: calc(100% - 12px);
+        margin: 10px 6px;
+        padding: 12px 5px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+}
