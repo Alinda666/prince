@@ -614,3 +614,32 @@ button {
         padding: 13px 8px;
     }
 }
+
+/* =========================================
+   MOBILE - REDUCE SPACE ABOVE FEATURED PRODUCTS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Reduce the space after the category section */
+    .categories {
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+
+    /* Featured Products heading */
+    #products,
+    .featured-products {
+        margin-top: 0;
+        padding-top: 20px;
+    }
+
+    #products h2,
+    .featured-products h2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+}
