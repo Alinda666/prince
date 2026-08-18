@@ -458,11 +458,11 @@ a {
 ========================================================= */
 
 @media (max-width: 700px) {
-
-    body {
-        overflow-x: hidden;
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
     }
-
+}
 
     /* -------------------------
        PROMO BANNER
@@ -554,18 +554,11 @@ a {
 
     /* TWO PRODUCTS PER ROW */
 
-    .products-grid {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 8px;
-
-        width: 100%;
-
-        padding: 0;
-    }
+   .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
 
 
     /* PRODUCT CARD */
