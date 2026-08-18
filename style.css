@@ -749,7 +749,7 @@ a {
 }
 
 /* ==========================================
-   FIX PRODUCT GRID - ALL CARDS SAME WIDTH
+   PRINCE SHOP - COMPLETE PRODUCT GRID FIX
 ========================================== */
 
 .products-grid {
@@ -757,40 +757,53 @@ a {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 20px !important;
     width: 100% !important;
-}
-
-.products-grid .product-card {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-/* Make every product image the same size */
-.products-grid .product-card img {
+/* FORCE EVERY PRODUCT TO USE ONE COLUMN */
+.products-grid > .product-card {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    flex: none !important;
+    box-sizing: border-box !important;
+}
+
+/* PRODUCT IMAGE */
+.products-grid > .product-card img {
+    display: block !important;
     width: 100% !important;
     height: 280px !important;
     object-fit: cover !important;
 }
 
 /* ==========================================
-   MOBILE - 2 PRODUCTS PER ROW
+   MOBILE
 ========================================== */
 
 @media (max-width: 700px) {
 
     .products-grid {
+        display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 8px !important;
-    }
-
-    .products-grid .product-card {
-        grid-column: auto !important;
         width: 100% !important;
     }
 
-    .products-grid .product-card img {
+    .products-grid > .product-card {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        grid-column: span 1 !important;
+    }
+
+    .products-grid > .product-card img {
+        width: 100% !important;
         height: 190px !important;
+        object-fit: cover !important;
     }
 }
+
