@@ -1,778 +1,736 @@
 /* =========================================================
    PRINCE ONLINE SHOP
-   COMPLETE RESPONSIVE.CSS
-   ========================================================= */
+   RESPONSIVE.CSS
+   Desktop → Tablet → Mobile
+========================================================= */
 
 
 /* =========================================================
-   1. GLOBAL RESPONSIVE FIXES
-   ========================================================= */
+   TABLET
+   769px – 1199px
+========================================================= */
 
-html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
+@media (max-width: 1199px) {
 
-body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-
-/* =========================================================
-   2. IMAGES
-   ========================================================= */
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* =========================================================
-   3. HEADER
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    header {
-        padding: 12px 20px;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
-
-    nav {
+    .navbar {
         gap: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    nav a {
-        font-size: 15px;
+    .nav-links {
+        gap: 12px;
     }
 
-}
-
-
-/* =========================================================
-   4. TABLET HEADER
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-    header {
-        padding: 12px 15px;
-    }
-
-    .logo {
-        font-size: 23px;
-    }
-
-    nav {
-        gap: 10px;
-    }
-
-    nav a {
-        font-size: 14px;
-    }
-
-}
-
-
-/* =========================================================
-   5. MOBILE HEADER
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    header {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    nav a {
+    .nav-links a {
         font-size: 13px;
     }
 
+    .products {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .product-card > img {
+        height: 235px;
+    }
+
+    .categories {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .hero {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 
 /* =========================================================
-   6. HERO SECTION
-   ========================================================= */
+   SMALL TABLET
+   769px – 900px
+========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .icons {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .search-box {
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+    }
+
+    .nav-links {
+        order: 4;
+
+        width: 100%;
+
+        justify-content: center;
+
+        overflow-x: auto;
+
+        padding-bottom: 3px;
+
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
 
     .hero {
-        min-height: 500px;
+        gap: 30px;
     }
 
     .hero-text h1 {
         font-size: 50px;
     }
 
-    .hero-text p {
-        font-size: 18px;
+    .promo-banner {
+        height: 430px;
     }
 
-}
-
-
-@media (max-width: 700px) {
-
-    .hero {
-        min-height: 550px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        padding: 40px 20px;
+    .promo-banner img {
+        height: 100%;
     }
-
-    .hero-text {
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero-text h1 {
-        font-size: 38px;
-        line-height: 1.1;
-    }
-
-    .hero-text p {
-        font-size: 16px;
-    }
-
-    .hero-image {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 25px;
-    }
-
-    .hero-image img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-    }
-
 }
 
 
 /* =========================================================
-   7. PROMOTIONAL BANNERS
-   ========================================================= */
+   MOBILE / SMALL TABLET
+   601px – 768px
+========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       HEADER
+    ----------------------------------------- */
+
+    .top-bar {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+    .navbar {
+        padding: 12px 15px;
+
+        gap: 12px;
+    }
+
+    .logo img {
+        max-width: 95px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------------------
+       BANNERS
+    ----------------------------------------- */
 
     .promo-banner {
-        height: 350px;
+        height: 380px;
+    }
+
+    .banner-content {
+        left: 5%;
+        right: 5%;
+
+        max-width: 90%;
     }
 
     .banner-content h2 {
-        font-size: 42px;
+        font-size: 40px;
     }
 
+    .banner-content p {
+        font-size: 16px;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 50px 20px;
+
+        gap: 35px;
+    }
+
+    .hero-text {
+        max-width: 700px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(42px, 9vw, 60px);
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 16px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 650px;
+    }
+
+
+    /* -----------------------------------------
+       CATEGORIES
+    ----------------------------------------- */
+
+    .categories {
+        padding: 50px 15px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .category-card {
+        min-height: 120px;
+
+        font-size: 17px;
+    }
+
+
+    /* -----------------------------------------
+       PRODUCTS
+       2 PRODUCTS PER ROW
+    ----------------------------------------- */
+
+    .products {
+        padding: 50px 15px;
+    }
+
+    .products-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        width: 100%;
+    }
+
+    .products-grid > .product-card {
+        grid-column: span 1;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .product-card > img {
+        width: 100%;
+        height: 200px;
+
+        object-fit: cover;
+    }
+
+    .product-card h3 {
+        padding-left: 8px;
+        padding-right: 8px;
+
+        font-size: 17px;
+    }
+
+    .product-card .price {
+        gap: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .product-card .old {
+        font-size: 12px;
+    }
+
+    .product-card .new {
+        font-size: 18px;
+    }
+
+    .product-card .add-to-cart {
+        width: calc(100% - 16px);
+
+        margin-left: 8px;
+        margin-right: 8px;
+
+        font-size: 14px;
+    }
+
+
+    /* -----------------------------------------
+       NEWSLETTER
+    ----------------------------------------- */
+
+    .newsletter {
+        padding: 50px 15px;
+    }
+
+    .newsletter input {
+        width: 100%;
+        max-width: 450px;
+
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        margin-left: 0;
+    }
 }
 
 
-@media (max-width: 700px) {
+/* =========================================================
+   MOBILE
+   600px AND BELOW
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------
+       HEADER
+    ----------------------------------------- */
+
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .logo img {
+        max-width: 82px;
+    }
+
+    .icons {
+        gap: 13px;
+    }
+
+    .icons a {
+        font-size: 18px;
+    }
+
+    .search-box {
+        height: 42px;
+    }
+
+    .search-box input {
+        height: 42px;
+
+        padding-left: 12px;
+        padding-right: 8px;
+
+        font-size: 13px;
+    }
+
+    .search-box button {
+        width: 44px;
+        height: 42px;
+    }
+
+    .nav-links {
+        gap: 15px;
+
+        justify-content: flex-start;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       PROMOTIONAL BANNERS
+    ----------------------------------------- */
 
     .promo-banner {
-        min-width: 100%;
         height: 300px;
+    }
+
+    .promo-banner img {
+        height: 100%;
     }
 
     .banner-content {
         left: 20px;
         right: 20px;
-        max-width: 90%;
+
+        max-width: calc(100% - 40px);
     }
 
     .banner-content span {
-        font-size: 14px;
+        margin-bottom: 7px;
+
+        font-size: 13px;
     }
 
     .banner-content h2 {
-        font-size: 30px;
-        line-height: 1.1;
+        margin-bottom: 10px;
+
+        font-size: 31px;
     }
 
     .banner-content p {
-        font-size: 15px;
-    }
-
-    .banner-btn {
-        padding: 12px 22px;
-        font-size: 15px;
-    }
-
-}
-
-
-/* =========================================================
-   9. PRODUCTS SECTION
-   ========================================================= */
-
-.products {
-    width: 100%;
-    max-width: 1400px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    padding: 50px 25px;
-
-    box-sizing: border-box;
-}
-
-
-/* =========================================================
-   10. PRODUCTS TITLE
-   ========================================================= */
-
-.products > h2 {
-    display: block;
-
-    width: 100%;
-
-    margin: 0 0 35px 0;
-
-    text-align: left;
-
-    font-size: 55px;
-
-    line-height: 1.1;
-}
-
-
-/* =========================================================
-   11. PRODUCT GRID - DESKTOP
-   ========================================================= */
-
-.products-grid {
-
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr)) !important;
-
-    gap: 20px !important;
-
-    width: 100% !important;
-
-    margin: 0 !important;
-
-    padding: 0 !important;
-
-    align-items: stretch !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* =========================================================
-   12. PRODUCT CARDS
-   ========================================================= */
-
-.products-grid > .product-card {
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    width: 100% !important;
-
-    min-width: 0 !important;
-
-    max-width: none !important;
-
-    margin: 0 !important;
-
-    grid-column: auto !important;
-
-    grid-row: auto !important;
-
-    box-sizing: border-box !important;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-
-/* =========================================================
-   13. PRODUCT IMAGES
-   ========================================================= */
-
-.products-grid > .product-card img {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    height: 260px !important;
-
-    max-width: 100% !important;
-
-    object-fit: cover !important;
-
-    flex-shrink: 0;
-}
-
-
-/* =========================================================
-   14. PRODUCT NAME
-   ========================================================= */
-
-.products-grid > .product-card h3 {
-
-    width: 100%;
-
-    margin: 18px 10px 10px;
-
-    text-align: center;
-
-    font-size: 21px;
-
-    line-height: 1.3;
-
-    word-break: normal;
-
-    overflow-wrap: normal;
-}
-
-
-/* =========================================================
-   15. PRODUCT PRICE
-   ========================================================= */
-
-.products-grid > .product-card .price {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin: 5px 10px 15px;
-}
-
-.products-grid > .product-card .old {
-    font-size: 16px;
-}
-
-.products-grid > .product-card .new {
-
-    font-size: 24px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   16. ADD TO CART
-   ========================================================= */
-
-.products-grid > .product-card .add-to-cart {
-
-    width: calc(100% - 30px) !important;
-
-    margin: auto 15px 20px !important;
-
-    padding: 15px 10px;
-
-    border: none;
-
-    border-radius: 40px;
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    box-sizing: border-box;
-}
-
-
-/* =========================================================
-   17. DISCOUNT BADGE
-   ========================================================= */
-
-.products-grid > .product-card .discount {
-
-    position: absolute;
-
-    top: 15px;
-
-    left: 15px;
-
-    z-index: 10;
-
-    padding: 10px 15px;
-
-    border-radius: 30px;
-
-    font-size: 15px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   18. TABLET PRODUCTS
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-    .products-grid {
-
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr)) !important;
-
-        gap: 15px !important;
-    }
-
-    .products > h2 {
-        font-size: 48px;
-    }
-
-    .products-grid > .product-card img {
-        height: 230px !important;
-    }
-
-}
-
-
-/* =========================================================
-   19. MOBILE PRODUCTS - 2 PER ROW
-   ========================================================= */
-
-   @media (max-width: 600px)
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-}
-
-@media (max-width: 600px) {
-    .products-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 700px) {
-
-    .products {
-
-        width: 100%;
-
-        padding: 35px 10px;
-
-        margin: 0;
-    }
-
-    .products > h2 {
-
-        width: 100%;
-
-        margin-bottom: 25px;
-
-        text-align: center;
-
-        font-size: 36px;
-
-        line-height: 1.1;
-    }
-
-    .products-grid {
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 10px !important;
-
-        width: 100% !important;
-    }
-
-    .products-grid > .product-card {
-
-        width: 100% !important;
-
-        min-width: 0 !important;
-
-        max-width: 100% !important;
-
-        grid-column: auto !important;
-
-        grid-row: auto !important;
-    }
-
-    .products-grid > .product-card img {
-
-        width: 100% !important;
-
-        height: 180px !important;
-
-        object-fit: cover !important;
-    }
-
-    .products-grid > .product-card h3 {
-
-        font-size: 17px;
-
-        margin: 12px 6px 8px;
-
-        line-height: 1.25;
-    }
-
-    .products-grid > .product-card .price {
-
-        flex-direction: column;
-
-        gap: 3px;
-
-        margin: 5px;
-    }
-
-    .products-grid > .product-card .old {
-
-        font-size: 13px;
-    }
-
-    .products-grid > .product-card .new {
-
-        font-size: 18px;
-    }
-
-    .products-grid > .product-card .add-to-cart {
-
-        width: calc(100% - 16px) !important;
-
-        margin: auto 8px 12px !important;
-
-        padding: 12px 5px;
+        margin-bottom: 15px;
 
         font-size: 14px;
     }
 
-    .products-grid > .product-card .discount {
+    .banner-btn {
+        min-height: 42px;
 
-        top: 8px;
-
-        left: 8px;
-
-        padding: 8px 11px;
+        padding: 9px 18px;
 
         font-size: 13px;
     }
 
-}
 
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
 
-/* =========================================================
-   20. VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 450px) {
-
-    .products-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 7px !important;
-    }
-
-    .products {
-
-        padding-left: 7px;
-
-        padding-right: 7px;
-    }
-
-    .products > h2 {
-
-        font-size: 32px;
-    }
-
-    .products-grid > .product-card img {
-
-        height: 155px !important;
-    }
-
-    .products-grid > .product-card h3 {
-
-        font-size: 15px;
-    }
-
-    .products-grid > .product-card .new {
-
-        font-size: 16px;
-    }
-
-    .products-grid > .product-card .add-to-cart {
-
-        font-size: 13px;
-
-        padding: 11px 4px;
-    }
-
-}
-
-
-/* =========================================================
-   21. FOOTER
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    footer {
-
-        text-align: center;
-
-        padding: 30px 15px;
-    }
-
-    footer .footer-container {
-
-        display: flex;
-
-        flex-direction: column;
+    .hero {
+        padding: 40px 15px;
 
         gap: 25px;
     }
 
-}
-
-
-/* =========================================================
-   22. SOCIAL MEDIA / CONTACT BUTTONS
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .social-links {
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 10px;
+    .hero-text h4 {
+        font-size: 15px;
     }
 
-}
-
-
-/* =========================================================
-   23. WHATSAPP FLOATING BUTTON
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .whatsapp-button,
-    .whatsapp-float {
-
-        width: 55px;
-
-        height: 55px;
-
-        right: 15px;
-
-        bottom: 15px;
+    .hero-text h1 {
+        font-size: 42px;
     }
 
-}
+    .hero-text p {
+        font-size: 15px;
+    }
 
-
-/* =========================================================
-   24. CART / CHECKOUT
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .cart-container,
-    .checkout-container {
-
+    .buttons {
         width: 100%;
-
-        max-width: 100%;
-
-        padding: 15px;
-
-        margin: 0;
-    }
-
-    .cart-item {
-
-        display: flex;
 
         flex-direction: column;
 
+        align-items: stretch;
+    }
+
+    .btn,
+    .btn-outline {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        border-radius: 18px;
+    }
+
+
+    /* -----------------------------------------
+       CATEGORIES
+    ----------------------------------------- */
+
+    .categories {
+        padding: 40px 12px;
+    }
+
+    .categories h2 {
+        margin-bottom: 25px;
+
+        font-size: 34px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
         gap: 10px;
+
+        padding: 0;
     }
 
-    .checkout-form {
+    .category-card {
+        min-height: 105px;
 
-        width: 100%;
+        padding: 10px;
+
+        border-radius: 15px;
+
+        font-size: 15px;
     }
 
-    .checkout-form input,
-    .checkout-form select,
-    .checkout-form textarea {
+
+    /* -----------------------------------------
+       PRODUCTS
+       KEEP 2 COLUMNS
+    ----------------------------------------- */
+
+    .products {
+        padding: 40px 10px;
+    }
+
+    .products > h2 {
+        margin-bottom: 25px;
+
+        font-size: 34px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
 
         width: 100%;
 
+        padding: 0;
+    }
+
+    .products-grid > .product-card {
+        grid-column: span 1;
+
+        width: 100%;
+        min-width: 0;
         max-width: 100%;
     }
 
+    .product-card {
+        border-radius: 14px;
+    }
+
+    .product-card > img {
+        width: 100%;
+        height: 175px;
+
+        object-fit: cover;
+    }
+
+    .product-card .discount {
+        top: 8px;
+        left: 8px;
+
+        padding: 5px 8px;
+
+        font-size: 10px;
+    }
+
+    .product-card h3 {
+        min-height: 48px;
+
+        padding: 10px 5px 3px;
+
+        font-size: 14px;
+    }
+
+    .product-card .price {
+        min-height: 55px;
+
+        padding: 3px 3px 8px;
+
+        gap: 3px;
+    }
+
+    .product-card .old {
+        font-size: 10px;
+    }
+
+    .product-card .new {
+        font-size: 15px;
+    }
+
+    .product-card .add-to-cart {
+        width: calc(100% - 12px);
+
+        min-height: 42px;
+
+        margin: auto 6px 8px;
+
+        padding: 8px 4px;
+
+        border-radius: 25px;
+
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       NEWSLETTER
+    ----------------------------------------- */
+
+    .newsletter {
+        padding: 45px 15px;
+    }
+
+    .newsletter h2 {
+        font-size: 30px;
+    }
+
+    .newsletter p {
+        font-size: 14px;
+    }
+
+    .newsletter input {
+        height: 44px;
+    }
+
+    .newsletter button {
+        width: 100%;
+        max-width: 450px;
+
+        height: 44px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
+
+    .site-footer {
+        padding: 45px 20px 20px;
+    }
+
+    .footer-column {
+        text-align: center;
+
+        align-items: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+    }
+
+
+    /* -----------------------------------------
+       WHATSAPP
+    ----------------------------------------- */
+
+    .whatsapp-button {
+        width: 52px;
+        height: 52px;
+
+        right: 14px;
+        bottom: 14px;
+
+        font-size: 24px;
+    }
 }
 
 
 /* =========================================================
-   25. PREVENT HORIZONTAL OVERFLOW
-   ========================================================= */
+   VERY SMALL PHONES
+   380px AND BELOW
+========================================================= */
 
-.products,
-.products-grid,
-.product-card,
-.promo-banners,
-.banner-track, {
+@media (max-width: 380px) {
 
-    max-width: 100%;
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
+        gap: 6px;
+    }
+
+    .product-card > img {
+        height: 150px;
+    }
+
+    .product-card h3 {
+        min-height: 44px;
+
+        font-size: 13px;
+    }
+
+    .product-card .old {
+        font-size: 9px;
+    }
+
+    .product-card .new {
+        font-size: 14px;
+    }
+
+    .product-card .add-to-cart {
+        font-size: 11px;
+    }
+
+    .category-card {
+        min-height: 90px;
+
+        font-size: 13px;
+    }
 }
 
-/* FINAL MOBILE PRODUCT GRID */
+/* ==========================================
+   MOBILE - 2 PRODUCTS PER ROW
+========================================== */
+
+@media (max-width: 600px) {
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+   
+
+}/* FINAL MOBILE PRODUCT GRID */
 
 @media (max-width: 600px) {
 
@@ -786,7 +744,6 @@ img {
     .products-grid .product-card {
         width: 100%;
         min-width: 0;
-        max-width: 100%;
         grid-column: auto;
     }
 
@@ -795,4 +752,4 @@ img {
 
 /* =========================================================
    END RESPONSIVE.CSS
-   ========================================================= */
+========================================================= */
