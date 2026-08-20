@@ -1013,12 +1013,10 @@ button {
 
 .products-grid,
 .product-card,
-.category-grid,
-.category-card,
 .hero,
 .hero-text,
 .hero-image,
-.search-box {
+.search-box  {
     min-width: 0;
 }
 
@@ -1036,11 +1034,6 @@ button {
     .products-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-
-    .category-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
 
 
 /* =========================================================
