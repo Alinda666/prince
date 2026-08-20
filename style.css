@@ -59,6 +59,7 @@ button {
 .header,
 .promo-banners,
 .hero,
+.categories,
 .products,
 .newsletter,
 .site-footer {
@@ -591,6 +592,69 @@ button {
 
 
 /* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories {
+    max-width: 1450px;
+
+    margin: 0 auto;
+
+    padding: 70px 30px;
+}
+
+.categories h2 {
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    font-size: clamp(34px, 5vw, 52px);
+
+    font-weight: 800;
+}
+
+.category-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.category-card {
+    width: 100%;
+    min-width: 0;
+
+    min-height: 130px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 20px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.category-card:hover {
+    border-color: #ff6600;
+
+    color: #ff6600;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
    PRODUCTS
 ========================================================= */
 
@@ -1013,10 +1077,12 @@ button {
 
 .products-grid,
 .product-card,
+.category-grid,
+.category-card,
 .hero,
 .hero-text,
 .hero-image,
-.search-box  {
+.search-box {
     min-width: 0;
 }
 
@@ -1034,6 +1100,11 @@ button {
     .products-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+
+    .category-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
 
 
 /* =========================================================
