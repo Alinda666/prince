@@ -1,488 +1,1171 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>PRINCE ONLINE SHOP</title>
 
-    <!-- Google Font -->
+    <!-- =========================
+         GOOGLE FONT
+    ========================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
-    <!-- Font Awesome -->
+
+    <!-- =========================
+         FONT AWESOME
+    ========================== -->
+
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
 
-    <!-- Main CSS -->
+
+    <!-- =========================
+         CSS
+    ========================== -->
+
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="shop.css">
-<link rel="stylesheet" href="responsive.css">
+
+    <link rel="stylesheet" href="shop.css">
+
+    <!-- MUST BE LAST -->
+    <link rel="stylesheet" href="responsive.css">
+
 </head>
+
 
 <body>
 
-    <!-- =========================
+
+    <!-- =====================================================
          WHATSAPP BUTTON
-    ========================== -->
+    ====================================================== -->
 
     <a
         href="https://wa.me/256776704328?text=Hello%20PRINCE%20ONLINE%20SHOP,%20I%20would%20like%20to%20make%20an%20order."
         class="whatsapp-button"
         target="_blank"
-        aria-label="Chat with us on WhatsApp">
+        rel="noopener"
+        aria-label="Chat with us on WhatsApp"
+    >
         💬
     </a>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          HEADER
-    ========================== -->
-<!-- =========================
-     HEADER
-========================= -->
+    ====================================================== -->
 
-<header class="header">
+    <header class="header">
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <p>🚚 Free Shipping on Orders Over ugx 200000</p>
-    </div>
+        <!-- TOP BAR -->
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
+        <div class="top-bar">
 
-        <!-- LOGO -->
-        <a href="index.html" class="logo">
-         <img src="logo.png" alt="PRINCE ONLINE SHOP">   
-        </a>
+            <p>
+                🚚 Free Shipping on Orders Over ugx 200000
+            </p>
 
-        <!-- SEARCH -->
-        <div class="search-box">
+        </div>
 
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Search products..."
+
+        <!-- NAVIGATION -->
+
+        <nav class="navbar">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="logo"
             >
+
+                <img
+                    src="logo.png"
+                    alt="PRINCE ONLINE SHOP"
+                >
+
+            </a>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search products..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="search-button"
+                    aria-label="Search"
+                >
+
+                    <i class="fas fa-search"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- NAVIGATION LINKS -->
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#categories">
+                        Categories
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#flash-sale">
+                        Flash Sale
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- HEADER ICONS -->
+
+            <div class="icons">
+
+
+                <!-- WISHLIST -->
+
+                <a
+                    href="#"
+                    aria-label="Wishlist"
+                >
+
+                    <i class="far fa-heart"></i>
+
+                </a>
+
+
+                <!-- CART -->
+
+                <a
+                    href="cart.html"
+                    class="cart-icon"
+                    aria-label="Shopping Cart"
+                >
+
+                    <i class="fas fa-shopping-cart"></i>
+
+                    <span id="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- ACCOUNT -->
+
+                <a
+                    href="account.html"
+                    aria-label="Account"
+                >
+
+                    <i class="far fa-user"></i>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PROMOTIONAL BANNERS
+    ====================================================== -->
+
+    <section class="promo-banners">
+
+        <div class="banner-track">
+
+
+            <!-- BANNER 1 -->
+
+            <div class="promo-banner">
+
+                <img
+                    src="banner1.jpg"
+                    alt="PRINCE Deals"
+                >
+
+                <div class="banner-content">
+
+                    <span>
+                        🔥 LIMITED OFFER
+                    </span>
+
+                    <h2>
+                        UP TO 80% OFF
+                    </h2>
+
+                    <p>
+                        Shop amazing products at unbeatable prices.
+                    </p>
+
+                    <a
+                        href="#products"
+                        class="banner-btn"
+                    >
+                        Shop Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BANNER 2 -->
+
+            <div class="promo-banner">
+
+                <img
+                    src="banner2.jpg"
+                    alt="PRINCE Flash Sale"
+                >
+
+                <div class="banner-content">
+
+                    <span>
+                        ⚡ FLASH SALE
+                    </span>
+
+                    <h2>
+                        BIG SAVINGS
+                    </h2>
+
+                    <p>
+                        Don't miss today's hottest deals.
+                    </p>
+
+                    <a
+                        href="#products"
+                        class="banner-btn"
+                    >
+                        View Deals
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BANNER 3 -->
+
+            <div class="promo-banner">
+
+                <img
+                    src="banner3.jpg"
+                    alt="PRINCE New Arrivals"
+                >
+
+                <div class="banner-content">
+
+                    <span>
+                        ✨ NEW ARRIVALS
+                    </span>
+
+                    <h2>
+                        SHOP THE LATEST
+                    </h2>
+
+                    <p>
+                        Discover our newest products today.
+                    </p>
+
+                    <a
+                        href="#products"
+                        class="banner-btn"
+                    >
+                        Explore Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-text">
+
+            <h4>
+                🔥 FLASH SALE
+            </h4>
+
+            <h1>
+                UP TO
+                <span>80% OFF</span>
+            </h1>
+
+            <p>
+                Discover amazing products at unbeatable prices.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="#products"
+                    class="btn"
+                >
+                    Shop Now
+                </a>
+
+                <a
+                    href="#products"
+                    class="btn-outline"
+                >
+                    Today's Deals
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-image">
+
+            <img
+                src="hero.png"
+                alt="PRINCE ONLINE SHOP"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CATEGORIES
+    ====================================================== -->
+
+    <section
+        class="categories"
+        id="categories"
+    >
+
+        <h2>
+            Shop By Category
+        </h2>
+
+
+        <div class="category-grid">
+
 
             <button
+                class="category-card"
+                data-category="shoes"
                 type="button"
-                id="search-button"
-                aria-label="Search"
             >
-                <i class="fas fa-search"></i>
+                👟 Shoes
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="phones"
+                type="button"
+            >
+                📱 Phones
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="computers"
+                type="button"
+            >
+                💻 Computers
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="watches"
+                type="button"
+            >
+                ⌚ Watches
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="fashion"
+                type="button"
+            >
+                👗 Fashion
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="furniture"
+                type="button"
+            >
+                🛋 Furniture
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="electronics"
+                type="button"
+            >
+                🎧 Electronics
+            </button>
+
+
+            <button
+                class="category-card"
+                data-category="home"
+                type="button"
+            >
+                🏠 Home
             </button>
 
         </div>
 
-        <!-- NAVIGATION LINKS -->
-        <ul class="nav-links">
+    </section>
 
-            <li>
-                <a href="index.html">Home</a>
-            </li>
 
-            <li>
-                <a href="shop.html">Shop</a>
-            </li>
 
-            <li>
-                <a href="#categories">Categories</a>
-            </li>
+    <!-- =====================================================
+         PRODUCTS
+    ====================================================== -->
 
-            <li>
-                <a href="#flash-sale">Flash Sale</a>
-            </li>
+    <section
+        class="products"
+        id="products"
+    >
 
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+        <h2>
+            Featured Products
+        </h2>
 
-        </ul>
 
-        <!-- HEADER ICONS -->
-        <div class="icons">
+        <div class="products-grid">
 
-            <!-- Wishlist -->
-            <a href="#" aria-label="Wishlist">
-                <i class="far fa-heart"></i>
-            </a>
 
-            <!-- Cart -->
-            <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-count">0</span>
-            </a>
+            <!-- =================================================
+                 1. NIKE
+            ================================================== -->
 
-            <!-- Account -->
-            <a href="account.html" aria-label="Account">
-                <i class="far fa-user"></i>
-            </a>
+            <div
+                class="product-card"
+                data-category="shoes"
+            >
 
-        </div>
+                <span class="discount">
+                    -50%
+                </span>
 
-    </nav>
+                <img
+                    src="shoe1.jpg"
+                    alt="Nike Air Max"
+                    loading="lazy"
+                >
 
-</header>
+                <h3>
+                    Nike Air Max
+                </h3>
 
-    
+                <div class="price">
 
-<!-- ==============================
-     PROMOTIONAL BANNERS
-================================ -->
+                    <span class="old">
+                        UGX 70,000
+                    </span>
 
-<section class="promo-banners">
+                    <span class="new">
+                        UGX 60,000
+                    </span>
 
-    <div class="banner-track">
+                </div>
 
-        <div class="promo-banner">
-            <img src="banner1.jpg" alt="PRINCE Deals">
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Nike Air Max"
+                    data-price="60000"
+                >
+                    Add To Cart
+                </button>
 
-            <div class="banner-content">
-                <span>🔥 LIMITED OFFER</span>
-                <h2>UP TO 80% OFF</h2>
-                <p>Shop amazing products at unbeatable prices.</p>
-                <a href="#products" class="banner-btn">Shop Now</a>
             </div>
-        </div>
 
-        <div class="promo-banner">
-            <img src="banner2.jpg" alt="PRINCE Flash Sale">
 
-            <div class="banner-content">
-                <span>⚡ FLASH SALE</span>
-                <h2>BIG SAVINGS</h2>
-                <p>Don't miss today's hottest deals.</p>
-                <a href="#products" class="banner-btn">View Deals</a>
+
+            <!-- =================================================
+                 2. IPHONE
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="phones"
+            >
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <img
+                    src="iphone.jpg"
+                    alt="iPhone 16"
+                    loading="lazy"
+                >
+
+                <h3>
+                    iPhone 16
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 1,200,000
+                    </span>
+
+                    <span class="new">
+                        UGX 1,100,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="iPhone 16"
+                    data-price="1100000"
+                >
+                    Add To Cart
+                </button>
+
             </div>
-        </div>
 
-        <div class="promo-banner">
-            <img src="banner3.jpg" alt="PRINCE New Arrivals">
 
-            <div class="banner-content">
-                <span>✨ NEW ARRIVALS</span>
-                <h2>SHOP THE LATEST</h2>
-                <p>Discover our newest products today.</p>
-                <a href="#products" class="banner-btn">Explore Now</a>
+
+            <!-- =================================================
+                 3. LAPTOP
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="computers"
+            >
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <img
+                    src="laptop.jpg"
+                    alt="Gaming Laptop"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Gaming Laptop
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 5,000,000
+                    </span>
+
+                    <span class="new">
+                        UGX 3,000,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Gaming Laptop"
+                    data-price="3000000"
+                >
+                    Add To Cart
+                </button>
+
             </div>
+
+
+
+            <!-- =================================================
+                 4. WATCH
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="watches"
+            >
+
+                <span class="discount">
+                    -60%
+                </span>
+
+                <img
+                    src="watch.jpg"
+                    alt="Luxury Watch"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Luxury Watch
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 900,000
+                    </span>
+
+                    <span class="new">
+                        UGX 360,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Luxury Watch"
+                    data-price="360000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 5. SMART PHONE
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="phones"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="phone.jpg"
+                    alt="Smart Phone"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Smart Phone
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 12,000
+                    </span>
+
+                    <span class="new">
+                        UGX 7,800
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Smart Phone"
+                    data-price="7800"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 6. MOTORCYCLE
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="other"
+            >
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <img
+                    src="motocyle.jpg"
+                    alt="Motorcycle"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Motorcycle
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 2,000,000
+                    </span>
+
+                    <span class="new">
+                        UGX 1,500,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Motorcycle"
+                    data-price="1500000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 7. CERAMIC TILES
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="home"
+            >
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <img
+                    src="kitchen ceramic tiles.jpg"
+                    alt="Ceramic Tiles"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Ceramic Tiles
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 45,000
+                    </span>
+
+                    <span class="new">
+                        UGX 42,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Ceramic Tiles"
+                    data-price="42000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 8. WASHING MACHINE
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="home"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="washing machine.jpg"
+                    alt="Washing Machine"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Washing Machine
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 800,000
+                    </span>
+
+                    <span class="new">
+                        UGX 750,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="Washing Machine"
+                    data-price="750000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 9. IRON BAR
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="other"
+            >
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <img
+                    src="iron bar.jpg"
+                    alt="Iron Bar"
+                    loading="lazy"
+                >
+
+                <h3>
+                    iron bar
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 12,000
+                    </span>
+
+                    <span class="new">
+                        UGX 11,500
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="iron bar"
+                    data-price="11500"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 10. HEAD PHONE
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="electronics"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="head phone.jpg"
+                    alt="Head Phone"
+                    loading="lazy"
+                >
+
+                <h3>
+                    head phone
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 45,000
+                    </span>
+
+                    <span class="new">
+                        UGX 30,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="head phone"
+                    data-price="30000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 11. PHONE HOLDER
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="electronics"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="phone holder.jpg"
+                    alt="Phone Holder"
+                    loading="lazy"
+                >
+
+                <h3>
+                    phone holder
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 25,000
+                    </span>
+
+                    <span class="new">
+                        UGX 20,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="phone holder"
+                    data-price="20000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 12. CHARGER
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="electronics"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="charger.png"
+                    alt="Charger"
+                    loading="lazy"
+                >
+
+                <h3>
+                    charger
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 2,000
+                    </span>
+
+                    <span class="new">
+                        UGX 18,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="original charger"
+                    data-price="18000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 13. POWER BANK
+            ================================================== -->
+
+            <div
+                class="product-card"
+                data-category="electronics"
+            >
+
+                <span class="discount">
+                    -35%
+                </span>
+
+                <img
+                    src="power bank.jpg"
+                    alt="Power Bank"
+                    loading="lazy"
+                >
+
+                <h3>
+                    power bank
+                </h3>
+
+                <div class="price">
+
+                    <span class="old">
+                        UGX 45,000
+                    </span>
+
+                    <span class="new">
+                        UGX 37,000
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-to-cart"
+                    type="button"
+                    data-name="20000 capacity power bank"
+                    data-price="37000"
+                >
+                    Add To Cart
+                </button>
+
+            </div>
+
         </div>
 
-    </div>
 
-</section>
-    
+        <!-- NO PRODUCTS MESSAGE -->
 
-
-<section class="hero">
-
-    <div class="hero-text">
-
-        <h4>🔥 FLASH SALE</h4>
-
-        <h1>
-            UP TO <span>80% OFF</span>
-        </h1>
-
-        <p>
-            Discover amazing products at unbeatable prices.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#products" class="btn">
-                Shop Now
-            </a>
-
-            <a href="#products" class="btn-outline">
-                Today's Deals
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-image">
-
-        <img
-            src="hero.png"
-            alt="PRINCE ONLINE SHOP"
+        <div
+            id="no-products"
+            class="no-products"
         >
 
-    </div>
+            <h3>
+                No products found
+            </h3>
 
-</section>
+            <p>
+                There are currently no products in this category.
+            </p>
 
-
-           <!-- =========================
-     PRODUCTS
-========================== -->
-<section class="products" id="products">
-
-    <div class="products-grid">
-
-        <!-- 1. NIKE -->
-            <span class="discount">-50%</span>
-
-            <img src="shoe1.jpg" alt="Nike Air Max">
-
-            <h3>Nike Air Max</h3>
-
-            <div class="price">
-                <span class="old">UGX 70,000</span>
-                <span class="new">UGX 60,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Nike Air Max"
-                    data-price="60000">
-                Add To Cart
-            </button>
         </div>
 
+    </section>
 
-        <!-- 2. IPHONE -->
-            <span class="discount">-40%</span>
 
-            <img src="iphone.jpg" alt="iPhone 16">
 
-            <h3>iPhone 16</h3>
+    <!-- =====================================================
+         NEWSLETTER
+    ====================================================== -->
 
-            <div class="price">
-                <span class="old">UGX 1,200,000</span>
-                <span class="new">UGX 1,100,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="iPhone 16"
-                    data-price="1100000">
-                Add To Cart
-            </button>
-        </div>
-
-
-        <!-- 3. LAPTOP -->
-            <span class="discount">-40%</span>
-
-            <img src="laptop.jpg" alt="Gaming Laptop">
-
-            <h3>Gaming Laptop</h3>
-
-            <div class="price">
-                <span class="old">UGX 5,000,000</span>
-                <span class="new">UGX 3,000,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Gaming Laptop"
-                    data-price="3000000">
-                Add To Cart
-            </button>
-        </div>
-
-
-        <!-- 4. WATCH -->
-            <span class="discount">-60%</span>
-
-            <img src="watch.jpg" alt="Luxury Watch">
-
-            <h3>Luxury Watch</h3>
-
-            <div class="price">
-                <span class="old">UGX 900,000</span>
-                <span class="new">UGX 360,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Luxury Watch"
-                    data-price="360000">
-                Add To Cart
-            </button>
-        </div>
-
-
-        <!-- 5. SMART PHONE -->
-            <span class="discount">-35%</span>
-
-            <img src="phone.jpg" alt="Smart Phone">
-
-            <h3>Smart Phone</h3>
-
-            <div class="price">
-                <span class="old">UGX 12,000</span>
-                <span class="new">UGX 7,800</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Smart Phone"
-                    data-price="7800">
-                Add To Cart
-            </button>
-        </div>
-
-
-        <!-- 7. MOTORCYCLE -->
-            <span class="discount">-40%</span>
-
-            <img src="motocyle.jpg" alt="Motorcycle">
-
-            <h3>Motorcycle</h3>
-
-            <div class="price">
-                <span class="old">UGX 2,000,000</span>
-                <span class="new">UGX 1,500,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Motorcycle"
-                    data-price="1500000">
-                Add To Cart
-            </button>
-        </div>
-
-
-         <!-- 8. IRON BAR -->
-            <span class="discount">-40%</span>
-
-            <img src="iron bar.jpg" alt="iron bar">
-
-            <h3>iron bar</h3>
-
-            <div class="price">
-                <span class="old">UGX 12,000</span>
-                <span class="new">UGX 11,500</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="iron bar"
-                    data-price="11500">
-                Add To Cart
-            </button>
-        </div>
-
-
-           <!-- 9. WASHING MACHINE -->
-            <span class="discount">-35%</span>
-
-            <img src="washing machine.jpg"
-                 alt="Washing Machine">
-
-            <h3>Washing Machine</h3>
-
-            <div class="price">
-                <span class="old">UGX 800,000</span>
-                <span class="new">UGX 750,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="Washing Machine"
-                    data-price="750000">
-                Add To Cart
-            </button>
-        </div>
-
-         <!-- 10. HEAD PHONE -->
-            <span class="discount">-35%</span>
-
-            <img src="head phone.jpg"
-                 alt="head phone">
-
-            <h3>head phone</h3>
-
-            <div class="price">
-                <span class="old">UGX 45,000</span>
-                <span class="new">UGX 30,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="head phone"
-                    data-price="30000">
-                Add To Cart
-            </button>
-        </div>
-
-        <!-- 11. PHONE HOLDER -->
-            <span class="discount">-35%</span>
-
-            <img src="phone holder.jpg"
-                 alt="phone holder">
-
-            <h3>phone holder</h3>
-
-            <div class="price">
-                <span class="old">UGX 25,000</span>
-                <span class="new">UGX 20,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="phone holder"
-                    data-price="20000">
-                Add To Cart
-            </button>
-        </div>
-        
-<!-- 12. CHARGER   -->
-            <span class="discount">-35%</span>
-
-            <img src="charger.png"
-                 alt="charger">
-
-            <h3>charger</h3>
-
-            <div class="price">
-                <span class="old">UGX 2,000</span>
-                <span class="new">UGX 18,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="original charger"
-                    data-price="18000">
-                Add To Cart
-            </button>
-        </div>
-
-        <!-- 12. POWER BANK   -->
-            <span class="discount">-35%</span>
-
-            <img src="power bank.jpg"
-                 alt="power bank">
-
-            <h3>power bank</h3>
-
-            <div class="price">
-                <span class="old">UGX 45,000</span>
-                <span class="new">UGX 37,000</span>
-            </div>
-
-            <button class="add-to-cart"
-                    data-name="20000 capacity power bank"
-                    data-price="37000">
-                Add To Cart
-            </button>
-        </div>
-
-
-        
-    </div>
-
-</section>
-
-        
-    <!-- NO PRODUCTS MESSAGE -->
-    <div id="no-products" class="no-products">
-        <h3>No products found</h3>
-    </div>
-
-</section>
-
-  <section class="newsletter">
+    <section class="newsletter">
 
         <h2>
             Get Exclusive Deals
@@ -494,7 +1177,8 @@
 
         <input
             type="email"
-            placeholder="Enter your email">
+            placeholder="Enter your email"
+        >
 
         <button type="button">
             Subscribe
@@ -503,13 +1187,15 @@
     </section>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <footer
         class="site-footer"
-        id="contact">
+        id="contact"
+    >
 
         <div class="footer-container">
 
@@ -574,10 +1260,10 @@
 
                 <a
                     href="https://wa.me/256776704328"
-                    target="_blank">
-
+                    target="_blank"
+                    rel="noopener"
+                >
                     💬 WhatsApp
-
                 </a>
 
                 <a href="mailto:princeonlineshop@gmail.com">
@@ -599,37 +1285,49 @@
 
                     <a
                         href="https://www.tiktok.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         TikTok
                     </a>
 
                     <a
                         href="https://www.instagram.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Instagram
                     </a>
 
                     <a
                         href="https://x.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         X
                     </a>
 
                     <a
                         href="https://www.snapchat.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Snapchat
                     </a>
 
                     <a
                         href="https://www.youtube.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         YouTube
                     </a>
 
                     <a
                         href="https://www.facebook.com/"
-                        target="_blank">
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Facebook
                     </a>
 
@@ -639,6 +1337,8 @@
 
         </div>
 
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
 
@@ -653,16 +1353,24 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================== -->
+    ====================================================== -->
 
-    <!-- MAIN WEBSITE SCRIPT -->
     <script src="cart.js"></script>
+
     <script src="main.js"></script>
+
     <script src="script.js"></script>
+
+    <script src="category.js"></script>
+
     <script src="search.js"></script>
+
     <script src="banners.js"></script>
-    
+
+
 </body>
+
 </html>
+```
